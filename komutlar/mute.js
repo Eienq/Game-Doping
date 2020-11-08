@@ -15,10 +15,14 @@ module.exports.run = async (bot, message, args, member) => {
   if (!muterol) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:basarisiz:757851005483221022> Sunucuda Mute Rolü Ayarlanmadığı İçin Komut Kullanılamaz! Not: Mute Rolü Ayarlamak İçin z!mrol @rol `))
 
 
-  if (!message.member.hasPermission("MUTE_MEMBERS"))
-    return message.reply(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:basarisiz:757851005483221022> Bunu yapabilmek için \`Üyeleri Sustur \`yetkisine sahip olmalısınız!`));
+   let hata = new Discord.MessageEmbed()
+ .setDescription('<a:basarisiz:757851005483221022> **Bu komudu kullanabilmek için** <@&774353380611981312> **yetkisine sahip olmalısın!**')
+ .setColor('RED')
+ 
+if (!message.member.roles.cache.get("774353380611981312")) return message.channel.send(hata)
+ 
   let mutekisi = message.guild.member(
-    message.mentions.users.first() || message.guild.members.cache.get(args[0])
+   message.mentions.users.first() || message.guild.members.cache.get(args[0])
   );
   if (!mutekisi)
     return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(
@@ -59,7 +63,7 @@ await mutekisi.roles.add(muterol);
 
   setTimeout(function() {
   mutekisi.roles.remove(muterol)
-    message.channel.send(new Discord.MessageEmbed().setColor('GREEN').setTimestamp().setDescription(`<@${mutekisi.id}> kullanıcısının mutelenme süresi sona erdi!`)      .setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
+    message.channel.send(new Discord.MessageEmbed().setColor('GREEN').setTimestamp().setDescription(`<@${mutekisi.id}> kullanıcısının mutelenme süresi sona erdi!`)
 );
   }, ms(mutezaman));
 };
