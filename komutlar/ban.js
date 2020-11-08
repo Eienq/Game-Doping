@@ -1,8 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const db = require("quick.db")
-const ayarlar = require("../ayarlar.json");
-const prefix = ayarlar.prefix;
 
 exports.run = async (client, message, args) => {
   let guild = message.guild
@@ -33,7 +31,7 @@ exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: [],
-  permLevel: 2,
+  permLevel: 0,
   kategori: "mod"
 };
 exports.help = { 
