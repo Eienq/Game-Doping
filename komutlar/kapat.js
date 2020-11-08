@@ -5,31 +5,31 @@ exports.run = async (client, message, args) => {
       new Discord.MessageEmbed()
         .setColor("#ff0000")
         .setDescription(
-          "Sohbet Kanalını Açabilmeniz İçin `Kanalları Yönet` Yetkisine Sahip Olmalısın.",
+          "Sohbet Kanalını Kapatabilmeniz İçin `Kanalları Yönet` Yetkisine Sahip Olmalısın.",
         )
      
     );
 
   let every = message.guild.roles.cache.find(r => r.name === "@everyone");
   message.channel.createOverwrite(every, {
-    SEND_MESSAGES: null
+    SEND_MESSAGES: false
   });
 
 
-  message.channel.send(new Discord.MessageEmbed().setColor('GREEN').setDescription(
-    "**Sohbet Kanalı Başarıyla Açıldı.**"
+  message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(
+    "**Sohbet Kanalı Başarıyla Kapatıldı.**"
   ));
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["sohbet-a"],
+  aliases: ["sohbet-k"],
   permLevel: 0
 };
 
 exports.help = {
-  name: 'sohbet-aç',
+  name: 'sohbet-kapat',
   description: 'İstediğiniz kişiyi uyarır.',
-  usage: 'aç'
+  usage: 'kapat'
 };
