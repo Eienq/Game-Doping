@@ -1,41 +1,58 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
-const db = require("quick.db")
+const db = require('quick.db');
 
-exports.run = async (client, message, args) => {
-  let guild = message.guild
-  let reason = args.slice(1).join(' ');
-  let user = message.mentions.users.first() || client.users.cache.get(args[0])
-  if (!user) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('Kimi banlayacağını yazmalısın.')).catch(console.error);
-  if (reason.length < 1) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('Ban sebebini yazmalısın.'));
-  guild.members.ban(user, { reason: reason });
-  message.channel.send("Kullanıcı başarıyla banlandı.")
+exports.run = async(client, message, args) => {
+	let rol = db.fetch(`banrol_${message.guild.id}`)
+	if(!message.member.roles.cache.has(rol)&& !message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:basarisiz:757851005483221022> Ban yetkili rolü ayarlanmamış veya <@&' + rol + '> Rolüne sahip değilsin.'))
+	let banlog = db.fetch(`banlog_${message.guild.id}`)
+	if(!banlog) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:basarisiz:757851005483221022> Ban log sistemi ayarlanmamış.'))
+    let user = message.mentions.users.first()
+    let sebep = args.slice(1).join(' ') || "Belirtilmemiş."
+     if(!user) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:basarisiz:757851005483221022> Bir kişi etiketlemelisin.'))
+     if(user.id === message.author.id) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:basarisiz:757851005483221022> Kendini banlayamazsın.'))
+     if(user.id === client.user.id) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:basarisiz:757851005483221022> Botu banlayamazsın.'))
+  if(user.id === message.guild.ownerID) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:basarisiz:757851005483221022> Sunucu sahibini banlayamazsın.'))
+    if (!message.guild.member(user).bannable) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:basarisiz:757851005483221022> Bu kişinin rolü senden üstte veya `Üyeleri yasakla` yetkisine sahip.'));
 
-  const embed = new Discord.MessageEmbed()
-    .setColor(0x000000)
-    .setTimestamp()
-    .setAuthor('Bir Üye Banlandı')
-    .addField('Banlanan Kullanıcı:', `${user.username}#${user.discriminator} (${user.id})`)
-    .addField('Banlayan Yetkili:', `${message.author.username}#${message.author.discriminator}`)
-    .addField('Banlanma Sebebi', reason);
-client.channels.cache.get('774349665700675615').send(embed)
-  
-    let embed1 = new Discord.MessageEmbed() 
-.setDescription(`${user} Adlı Kişi Sunucudan Yasaklandı! `) 
-.setColor("BLACK")
-return message.channel.send(embed1);
-  
-};
+   message.channel.send(new Discord.MessageEmbed().setColor('GREEN').setDescription('<@'+ user.id + '> Kişisini **'+ sebep+ '** Sebebiyle banlamak istediğine eminmisin ?')).then(async m => {
+   	 m.react('✅').then(r =>{ 
 
+   const tamam = (reaction,user) => reaction.emoji.name == '✅' && user.id == message.author.id;
+      const tamam2 = m.createReactionCollector(tamam)
+
+   tamam2.on('collect', async (r)=>{
+  message.guild.members.cache.get(user.id).ban({
+  	reason: `${sebep}`
+          })
+      let embed = new Discord.MessageEmbed()
+    .setColor('GREEN')
+    .setTitle('Kişi banlandı')
+    .addField('Yetkili', `${message.author.tag}`)
+    .addField('Banlanan kişi', user)
+    .addField('Sebep', sebep)
+    client.channels.cache.get(banlog).send(embed)
+       })
+    })
+    await m.react('❌').then(r =>{ 
+
+   const tamam = (reaction,user) => reaction.emoji.name == '❌' && user.id == message.author.id;
+      const tamam2 = m.createReactionCollector(tamam)
+
+   tamam2.on('collect', async (r)=>{
+     m.delete()
+message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('Banlama işlemi iptal edildi.'))
+      })
+    })
+ })
+} 
+ 
 exports.conf = {
-  enabled: true,
-  guildOnly: true,
-  aliases: [],
-  permLevel: 0,
-  kategori: "mod"
+	enabled: true,
+	guildOnly: false,
+	aliases:[],
+	permlevel: 0
 };
-exports.help = { 
-	name: 'ban', 
-	description: 'Belirttiğiniz kişiyi sunucudan banlarsınız.', 
-	usage: 'ban' 
+
+exports.help = {
+	name: "ban"
 }
