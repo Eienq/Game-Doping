@@ -1,10 +1,11 @@
+
+const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 const db = require("quick.db");
 let talkedRecently = new Set();
 module.exports = async message => {
   
   
-Save New Duplicate & Edit Just Text
 const ms = require('parse-ms');
   let client = message.client;
 
@@ -23,10 +24,9 @@ const ms = require('parse-ms');
     db.delete(`afk_${message.author.id}`);
     db.delete(`afk_süre_${message.author.id}`);
     const muah2  = new Discord.MessageEmbed()
-    .addField(`\`${message.author.username}\` adlı kullanıcı \`${REASON}\` sebebiyle;`,` \`${sa.hours}\` **saat**  \`${sa.minutes}\` **dakika** \`${sa.seconds}\` **saniye** den beri **AFK**`)
+    .setDescription(`${message.author.tag} adlı kullanıcı \`${REASON}\` sebebiyle; \`${sa.hours}\` **saat**  \`${sa.minutes}\` **dakika** \`${sa.seconds}\` **saniye** den beri **AFK**`)
     .setColor("#00ff88")
-    .setFooter(`AFK Sistemi.`, client.user.avatarURL());
-    message.reply(muah2)
+    message.channel.send(muah2)
 
   
   }
@@ -38,7 +38,6 @@ const ms = require('parse-ms');
   setTimeout(() => {
     talkedRecently.delete(message.author.id);
   }, );
-  let client = message.client;
   let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
