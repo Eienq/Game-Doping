@@ -137,8 +137,8 @@ client.login(ayarlar.token);
 client.on("guildMemberAdd", member => {
 
 if(member.user.username.includes("∾")){
-member.add.roles("774353402858700832")
-member.remove.roles("774353422316601394")
+member.roles.add("774353402858700832")
+member.roles.remove("774353422316601394")
 member.send("Nickinizde Yasaklı Tag Bulunmaktadır.")
 }
 })
