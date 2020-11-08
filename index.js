@@ -132,13 +132,12 @@ client.on('error', e => {
 
 client.login(ayarlar.token);
 
-//////////////
+
 
 client.on("guildMemberAdd", member => {
-
 if(member.user.username.includes("∾")){
 member.roles.add("774353402858700832")
 member.roles.remove("774353422316601394")
-member.send("Nickinizde Yasaklı Tag Bulunmaktadır.")
+member.send(`${member.guild.name} adlı sunucuda yasaklı tag kullandığınız için cezalı rolu aldınız!`)
 }
 })
