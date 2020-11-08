@@ -32,25 +32,22 @@ if (!message.member.roles.cache.get("774353380611981312")) return message.channe
 
 await mutekisi.roles.add('774353404855451658');
 const embed1 = new Discord.MessageEmbed()
-    .setColor('BLACK')
     .setAuthor("Bir Kullanıcı Susturuldu")
     .addField("**Kullanıcı:**", `<@${mutekisi.id}>`)
     .addField("**Yetkili:**", message.author)
     .addField("**Süre:**", args[1])
     .addField("**Sebep:**", `${sebep === "" ? "Sebep belirtilmemiş." : sebep}`)
     .setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
-    .setTimestamp()
+    .setColor('#ffecbc')
+    .setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
+   .setTimestamp()
 bot.channels.cache.get('774349665700675615').send(embed1)
-
- 
-
-                      
-                      ;
+message.channel.send(new Discord.MessageEmbed().setColor('#92dffe').setDescription(`<@${mutekisi.id}> adlı kullanıcı susturuldu`));
   
 
   setTimeout(function() {
   mutekisi.roles.remove('774353404855451658')
-    message.channel.send(new Discord.MessageEmbed().setColor('BLUE').setTimestamp().setDescription(`<@${mutekisi.id}> kullanıcısının mutelenme süresi sona erdi!`)
+    message.channel.send(new Discord.MessageEmbed().setColor('#bae800').setDescription(`<@${mutekisi.id}> kullanıcısının mutelenme süresi sona erdi!`)
 );
   }, ms(mutezaman));
 };
