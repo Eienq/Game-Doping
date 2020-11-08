@@ -4,9 +4,7 @@ exports.run = async (client, message, args) => {
     return message.channel.send(
       new Discord.MessageEmbed()
         .setColor("#ff0000")
-        .setDescription(
-          "Sohbet Kanalını Kapatabilmeniz İçin `Kanalları Yönet` Yetkisine Sahip Olmalısın.",
-        )
+        .setDescription("Sohbet Kanalını Kapatabilmeniz İçin `Kanalları Yönet` Yetkisine Sahip Olmalısın.")
      
     );
 
