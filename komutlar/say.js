@@ -4,7 +4,7 @@ exports.run = async (client, message, args) => {
     const voiceChannels = message.guild.channels.cache.filter(c => c.type === 'voice');
     let count = 0
      let botlar = message.guild.members.cache.filter(m => m.user.bot).size;
-      var toplamEtiketliUyeler = message.guild.members.filter(member => member.user.username.includes("乡")).size
+      var toplamEtiketliUyeler = message.guild.members.cache.filter(member => member.user.username.includes("")).size
 
     let textChannels = message.guild.channels.cache.filter(m => m.type == "text").size;
     for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;
@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
         .addField(`<a:sagok:757855573554233396> **Toplam Çevrimiçi Üye Sayısı**`, `» **${dark_kod}**`) 
         .addField(`<a:sagok:757855573554233396> **Seslideki Üye Sayısı**`,`» **${count}**`) 
         .addField(`<a:sagok:757855573554233396> **Yazı Kanalları**`, ` » **${textChannels}**`)
-        .addField(`*Taglı üyede* ***${toplamEtiketliUyeler}*** *kişi bulunmaktadır.`, `» ${message.guild.channels.cache.filter(chan => chan.type === 'voice').size}`) 
+        .addField(`Taglı Üye Sayısı.`, `» **${toplamEtiketliUyeler}**`) 
         .addField(`<a:sagok:757855573554233396> **Roller**`,`»  **${message.guild.roles.cache.size}**`)
         .addField(`<a:sagok:757855573554233396> **Emojiler**`,`»  **${message.guild.emojis.cache.size}**`) 
 .setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
