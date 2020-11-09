@@ -2,10 +2,10 @@ const Discord = require('discord.js');
 exports.run = async (client, message, args) => {
  
   let hata = new Discord.MessageEmbed()
- .setDescription('<a:basarisiz:757851005483221022> **Bu komudu kullanabilmek için** <@&774353377974157353> **yetkisine sahip olmalısın!**')
+ .setDescription('<a:basarisiz:757851005483221022> **Bu komudu kullanabilmek için** <@&770868327060471819> **yetkisine sahip olmalısın!**')
  .setColor('RED')
  
-if (!message.member.roles.cache.get("774353377974157353")) return message.channel.send(hata) 
+if (!message.member.roles.cache.get("770868327060471819")) return message.channel.send(hata) 
 let kullanıcı = message.mentions.users.first()
 if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription('Bir üye etiketlemen gerekiyor!'));
 let user = message.mentions.users.first();
@@ -13,7 +13,7 @@ let rol = message.mentions.roles.first()
 let member = message.guild.member(kullanıcı)
 member.roles.add('770473551127248906')
 member.roles.add('770473550431518772')
-member.roles.remove('770473546408394773')
+member.roles.remove('770898654546362368')
 
    
 
@@ -29,7 +29,7 @@ const embed1 = new Discord.MessageEmbed()
 client.channels.cache.get('775358713723748372').send(embed1)
   
   let embed = new Discord.MessageEmbed() 
-.setDescription(`${kullanıcı} Adlı Kişisinin <@&770473546408394773> Rolü Alınarak ,<@&770473551127248906> ve <@&770473550431518772> Rolleri Verildi! `) 
+.setDescription(`${kullanıcı} Adlı Kişisinin <@&770898654546362368> Rolü Alınarak ,<@&770473551127248906> ve <@&770473550431518772> Rolleri Verildi! `) 
 .setColor("#ffecbc")
 return message.channel.send(embed);
   
