@@ -23,7 +23,7 @@ const embed1 = new Discord.MessageEmbed()
 .setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setTimestamp()
-client.channels.cache.get('774349665700675615').send(embed1)
+client.channels.cache.get('775358713723748372').send(embed1)
   
   let embed = new Discord.MessageEmbed() 
 .setDescription(`${kullanıcı} Adlı Kişisinin <@&774353404855451658> Rolü Alınarak, susturulması kaldırıldı `) 
@@ -35,13 +35,13 @@ return message.channel.send(embed);
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["unmute","um"],
+  aliases: ["unmut..e","u..m"],
   kategori: "Yetkili Komutları",
   permLevel: 0
 }
 
 exports.help = {
-  name: 'um',
+  name: 'u..m',
   description: "Etiketlenen kişinin tüm rollerini alıp jail'e atar.",
   usage: '!jail @etiket Sebebe'
 }

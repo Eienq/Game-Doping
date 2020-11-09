@@ -41,7 +41,7 @@ const embed1 = new Discord.MessageEmbed()
     .setColor('#ffecbc')
     .setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
    .setTimestamp()
-bot.channels.cache.get('774349665700675615').send(embed1)
+bot.channels.cache.get('775358713723748372').send(embed1)
 message.channel.send(new Discord.MessageEmbed().setColor('#92dffe').setDescription(`<@${mutekisi.id}> adlı kullanıcı susturuldu`));
   
 
@@ -55,12 +55,12 @@ message.channel.send(new Discord.MessageEmbed().setColor('#92dffe').setDescripti
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["tempmute"],
+  aliases: ["te..mpmute"],
   permLevel: 0
 };
 
 exports.help = {
-  name: "mute",
+  name: "mutebeklemede",
   description: "Etiketlediğiniz kişiye belirttiğiniz süre kadar mute atar.",
   usage: "mute <@kullanıcı> <1sn/1dk/1sa/1g>"
 };
