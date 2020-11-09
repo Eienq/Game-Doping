@@ -23,8 +23,6 @@ if (!message.member.roles.cache.get("774353380611981312")) return message.channe
   if (!mutekisi)
     return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(
       `<a:basarisiz:757851005483221022> Lütfen bir kullanıcı etiketleyiniz!`));
-  if (mutekisi.hasPermission("MANAGE_MESSAGES"))
-    return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:basarisiz:757851005483221022> Yetkili bir kişiyi muteleyemem!`));
   let sebep = args.splice(2, args.length).join(" ");
   let mutezaman = args[1]
 
