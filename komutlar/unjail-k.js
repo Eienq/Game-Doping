@@ -11,20 +11,17 @@ if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColo
 let user = message.mentions.users.first();
 let rol = message.mentions.roles.first()
 let member = message.guild.member(kullanıcı)
-let reason = args.slice(1).join(" ")
-if(!reason) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription("Jaile atmak için sebep belirtmelisin!"));
-  
-member.roles.cache.forEach(r => {
-member.roles.add('770901723929378836');
-member.roles.remove(r.id)
+member.roles.add('770544171831263253')
+member.roles.add('770473550431518772')
+member.roles.remove('770901723929378836')
 
    
-})
+
 const embed1 = new Discord.MessageEmbed()
-.setAuthor('Bir Üye Cezalıya Atıldı')
-.addField(`Jaile Atılan Kullanıcı`,` ${kullanıcı}`)
-.addField(`Jaile Atan Yetkili`,` <@${message.author.id}>`)
-.addField(`Jaile Atılma Sebebi`, `${reason} `)
+.setAuthor('Bir Üye Cezalıya Çıkarıldı')
+.addField(`Jailden Çıkarılan Kullanıcı`,` ${kullanıcı}`)
+.addField(`Jailden Çıkaran Yetkili`,` <@${message.author.id}>`)
+.addField(`Jailden Çıkarılınca Verilen Roller`, `<@&770544171831263253>, <@&770473550431518772>`)
 .setColor("#ffecbc")
 .setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
@@ -32,8 +29,8 @@ const embed1 = new Discord.MessageEmbed()
 client.channels.cache.get('775358713723748372').send(embed1)
   
   let embed = new Discord.MessageEmbed() 
-.setDescription(`${kullanıcı} Adlı Kişisinin Tüm Rolleri Alınarak, <@&770901723929378836> Rolü Verildi! `) 
-.setColor("BLACK")
+.setDescription(`${kullanıcı} Adlı Kişisinin <@&770901723929378836> Rolü Alınarak ,<@&770544171831263253> ve <@&770473550431518772> Rolleri Verildi! `) 
+.setColor("#ffecbc")
 return message.channel.send(embed);
   
 }
@@ -41,13 +38,13 @@ return message.channel.send(embed);
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["ceza","cezalandır"],
+  aliases: ["unjail-k","ukız"],
   kategori: "Yetkili Komutları",
   permLevel: 0
 }
 
 exports.help = {
-  name: 'jail',
+  name: 'uk',
   description: "Etiketlenen kişinin tüm rollerini alıp jail'e atar.",
   usage: '!jail @etiket Sebebe'
 }

@@ -13,7 +13,7 @@ let rol = message.mentions.roles.first()
 let member = message.guild.member(kullanıcı)
 member.roles.add('770473551127248906')
 member.roles.add('770473550431518772')
-member.roles.remove('770898654546362368')
+member.roles.remove('770901723929378836')
 
    
 
@@ -21,7 +21,7 @@ const embed1 = new Discord.MessageEmbed()
 .setAuthor('Bir Üye Cezalıya Çıkarıldı')
 .addField(`Jailden Çıkarılan Kullanıcı`,` ${kullanıcı}`)
 .addField(`Jailden Çıkaran Yetkili`,` <@${message.author.id}>`)
-.addField(`Jailden Çıkarılınca Verilen Roller`, `<@&770473551127248906>`)
+.addField(`Jailden Çıkarılınca Verilen Roller`, `<@&770473551127248906>, <@&770473550431518772>`)
 .setColor("#ffecbc")
 .setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
@@ -29,7 +29,7 @@ const embed1 = new Discord.MessageEmbed()
 client.channels.cache.get('775358713723748372').send(embed1)
   
   let embed = new Discord.MessageEmbed() 
-.setDescription(`${kullanıcı} Adlı Kişisinin <@&770898654546362368> Rolü Alınarak ,<@&770473551127248906> ve <@&770473550431518772> Rolleri Verildi! `) 
+.setDescription(`${kullanıcı} Adlı Kişisinin <@&770901723929378836> Rolü Alınarak ,<@&770473551127248906> ve <@&770473550431518772> Rolleri Verildi! `) 
 .setColor("#ffecbc")
 return message.channel.send(embed);
   
