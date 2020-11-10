@@ -12,10 +12,10 @@ const prefix = ayarlar.prefix;
 module.exports.run = async (bot, message, args, member) => {
 
    let hata = new Discord.MessageEmbed()
- .setDescription('<a:basarisiz:757851005483221022> **Bu komudu kullanabilmek için** <@&774353380611981312> **yetkisine sahip olmalısın!**')
+ .setDescription('<a:basarisiz:757851005483221022> **Bu komudu kullanabilmek için** <@&770868327748599808> **yetkisine sahip olmalısın!**')
  .setColor('RED')
  
-if (!message.member.roles.cache.get("774353380611981312")) return message.channel.send(hata)
+if (!message.member.roles.cache.get("770868327748599808")) return message.channel.send(hata)
  
   let mutekisi = message.guild.member(
    message.mentions.users.first() || message.guild.members.cache.get(args[0])
@@ -28,7 +28,7 @@ if (!message.member.roles.cache.get("774353380611981312")) return message.channe
 
   if (!mutezaman) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`<a:basarisiz:757851005483221022> Lütfen bir zaman giriniz! \n 1 Saniye = 1s \n 1 Dakika = 1m \n 1 Saat = 1h \n 1 Gün = 1d`));
 
-await mutekisi.roles.add('774353404855451658');
+await mutekisi.roles.add('775801882752188426');
 const embed1 = new Discord.MessageEmbed()
     .setAuthor("Bir Kullanıcı Susturuldu")
     .addField("**Kullanıcı:**", `<@${mutekisi.id}>`)
@@ -44,7 +44,7 @@ message.channel.send(new Discord.MessageEmbed().setColor('#92dffe').setDescripti
   
 
   setTimeout(function() {
-  mutekisi.roles.remove('774353404855451658')
+  mutekisi.roles.remove('775801882752188426')
     message.channel.send(new Discord.MessageEmbed().setColor('#bae800').setDescription(`<@${mutekisi.id}> kullanıcısının mutelenme süresi sona erdi!`)
 );
   }, ms(mutezaman));
@@ -53,12 +53,12 @@ message.channel.send(new Discord.MessageEmbed().setColor('#92dffe').setDescripti
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["te..mpmute"],
+  aliases: ["tempmute"],
   permLevel: 0
 };
 
 exports.help = {
-  name: "mutebeklemede",
+  name: "mute",
   description: "Etiketlediğiniz kişiye belirttiğiniz süre kadar mute atar.",
   usage: "mute <@kullanıcı> <1sn/1dk/1sa/1g>"
 };
