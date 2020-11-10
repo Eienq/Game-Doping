@@ -4,7 +4,7 @@ exports.run = async (client, message, args) => {
     const voiceChannels = message.guild.channels.cache.filter(c => c.type === 'voice');
     let count = 0
      let botlar = message.guild.members.cache.filter(m => m.user.bot).size;
-      var toplamEtiketliUyeler = message.guild.members.cache.filter(member => member.user.username.includes("")).size
+      var toplamEtiketliUyeler = message.guild.members.cache.filter(member => member.user.username.includes("TAGINIZ")).size
 
       
     let textChannels = message.guild.channels.cache.filter(m => m.type == "text").size;

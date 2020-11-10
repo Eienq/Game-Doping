@@ -17,7 +17,6 @@ message.member.setNickname('[AFK] '+message.member.displayName);
   const embed = new Discord.MessageEmbed()
 
   .setDescription(` ${user.tag} **Başarıyla \`${sebep}\`Sebebiyle AFK moduna girdin.**`)
-  .setThumbnail(message.author.avatarURL())
   .setColor("GREEN")
 
   message.channel.send(embed)
