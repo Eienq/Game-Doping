@@ -12,9 +12,9 @@ if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColo
 let user = message.mentions.users.first();
 let rol = message.mentions.roles.first()
 let member = message.guild.member(kullanıcı)
-member.roles.add('770544171831263253')//Verilecek Kız Rol İd
-member.roles.add('770473550431518772')//Verilecek 2. Kız Rol İd Gerekli Değilse Satırı Silin
-member.roles.remove('770901723929378836')//Cezalı Rol İd
+member.roles.add('KIZ-ROL-İD')//Verilecek Kız Rol İd
+member.roles.add('KIZ-ROL-İD')//Verilecek 2. Kız Rol İd Gerekli Değilse Satırı Silin
+member.roles.remove('CEZALI-ROL-İD')//Cezalı Rol İd
 
    
 
@@ -27,7 +27,7 @@ const embed1 = new Discord.MessageEmbed()
 .setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setTimestamp()
-client.channels.cache.get('775358713723748372').send(embed1)//Log Kanalı İdsi
+client.channels.cache.get('LOG-KANAL-İD').send(embed1)//Log Kanalı İdsi
   
   let embed = new Discord.MessageEmbed() 
 .setDescription(`${kullanıcı} Adlı Kişisinin <@&770901723929378836> Rolü Alınarak ,<@&770544171831263253> ve <@&770473550431518772> Rolleri Verildi! `) 

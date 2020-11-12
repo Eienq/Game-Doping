@@ -2,10 +2,10 @@ const Discord = require('discord.js');
 
 exports.run = async(client, message, args) => {
 
-   let hata = new Discord.MessageEmbed()
- .setDescription('<a:basarisiz:757851005483221022> **Bu komudu kullanabilmek için** <@&770868327748599808> **yetkisine sahip olmalısın!**')
+   let yetkiyok = new Discord.MessageEmbed()
+ .setDescription('<a:basarisiz:757851005483221022> **Bu komudu kullanabilmek için** <@&YETKİLİ-İD> **yetkisine sahip olmalısın!**')
  .setColor('RED')
- if (!message.member.roles.cache.get("YETKİLİ-")) return message.channel.send(hata)
+ if (!message.member.roles.cache.get("YETKİLİ-İD")) return message.channel.send(yetkiyok)
 	   let user = message.mentions.users.first()
     let sebep = args.slice(1).join(' ') || "Belirtilmemiş."
      if(!user) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:basarisiz:757851005483221022> Bir kişi etiketlemelisin.'))
