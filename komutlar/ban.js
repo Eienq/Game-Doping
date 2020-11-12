@@ -5,7 +5,7 @@ exports.run = async(client, message, args) => {
    let hata = new Discord.MessageEmbed()
  .setDescription('<a:basarisiz:757851005483221022> **Bu komudu kullanabilmek için** <@&770868327748599808> **yetkisine sahip olmalısın!**')
  .setColor('RED')
- if (!message.member.roles.cache.get("770868327748599808")) return message.channel.send(hata)
+ if (!message.member.roles.cache.get("YETKİLİ-")) return message.channel.send(hata)
 	   let user = message.mentions.users.first()
     let sebep = args.slice(1).join(' ') || "Belirtilmemiş."
      if(!user) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:basarisiz:757851005483221022> Bir kişi etiketlemelisin.'))
@@ -23,7 +23,7 @@ exports.run = async(client, message, args) => {
     .addField('Yetkili', `${message.author.tag}`)
     .addField('Banlanan kişi', user)
     .addField('Sebep', sebep)
-client.channels.cache.get('775358713723748372').send(embed)//Log Kanalı
+client.channels.cache.get('LOG-KANAL-İD').send(embed)//Log Kanalı
        })
     }
  

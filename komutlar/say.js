@@ -9,8 +9,8 @@ exports.run = async (client, message, args) => {
       
     let textChannels = message.guild.channels.cache.filter(m => m.type == "text").size;
     for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;
-  let  dark_kod = message.guild.members.cache.filter(m => !m.user.bot && m.user.presence.status !== "offline").size 
-    const darkcode  = new Discord.MessageEmbed() 
+  let  ace_kod = message.guild.members.cache.filter(m => !m.user.bot && m.user.presence.status !== "offline").size 
+    const acebots  = new Discord.MessageEmbed() 
         .setColor("RED")
         .addField(`<a:sagok:757855573554233396> **Sunucudaki Toplam Üye Sayısı**`,`» **${message.guild.memberCount}**`)
         .addField(`<a:sagok:757855573554233396> **Seslideki Üye Sayısı**`,`» **${count}**`) 
@@ -18,11 +18,14 @@ exports.run = async (client, message, args) => {
 .setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
              .setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 
-    message.channel.send(darkcode);
+    message.channel.send(acebots);
 } 
+
+
+
                                                           
 exports.conf = {
-    enabled: true,                              //Datkcode
+    enabled: true,                          
     aliases: ["saylan"], 
     permLevel: 0                                  
 }; 

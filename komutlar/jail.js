@@ -15,7 +15,7 @@ let reason = args.slice(1).join(" ")
 if(!reason) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription("Jaile atmak için sebep belirtmelisin!"));
   
 member.roles.cache.forEach(r => {
-member.roles.add('770901723929378836');//Cezalı Rol İd
+member.roles.add('CEZALI-ROL-İD');//Cezalı Rol İd
 member.roles.remove(r.id)
 
    
@@ -29,7 +29,7 @@ const logkanal = new Discord.MessageEmbed()
 .setThumbnail( message.kullanıcı.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setTimestamp()
-client.channels.cache.get('775358713723748372').send(logkanal)// Log Kanalı
+client.channels.cache.get('LOG-KANAL').send(logkanal)// Log Kanalı
   
   let embed = new Discord.MessageEmbed() 
 .setDescription(`${kullanıcı} Adlı Kişisinin Tüm Rolleri Alınarak, <@&770901723929378836> Rolü Verildi! `) 
