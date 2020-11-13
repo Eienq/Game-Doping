@@ -34,7 +34,7 @@ const logkanal = new Discord.MessageEmbed()
 .addField(`Jaile Atan Yetkili`,` <@${message.author.id}>`)
 .addField(`Jaile Atılma Sebebi`, `${reason} `)
 .setColor("#ffecbc")
-.setThumbnail( message.kullanıcı.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
+.setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setTimestamp()
 client.channels.cache.get(jaillogkanal).send(logkanal)// Log Kanalı

@@ -1,10 +1,13 @@
 const Discord = require('discord.js');
+const ayarlar = require("../ayarlar.json");
+
 
 exports.run = async (client, message, args) => {
+  let tag = ayarlar.tag
     const voiceChannels = message.guild.channels.cache.filter(c => c.type === 'voice');
     let count = 0
      let botlar = message.guild.members.cache.filter(m => m.user.bot).size;
-      var toplamEtiketliUyeler = message.guild.members.cache.filter(member => member.user.username.includes("TAGINIZ")).size
+      var toplamEtiketliUyeler = message.guild.members.cache.filter(member => member.user.username.includes(tag)).size
 
       
     let textChannels = message.guild.channels.cache.filter(m => m.type == "text").size;
