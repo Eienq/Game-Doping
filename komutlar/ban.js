@@ -1,11 +1,19 @@
 const Discord = require('discord.js');
+const ayarlar = require("../ayarlar.json");
+
 
 exports.run = async(client, message, args) => {
+  
+        let yetkili = ayarlar.banyetkili
+        let banlogkanal = ayarlar.banlog
 
-   let yetkiyok = new Discord.MessageEmbed()
- .setDescription('<a:basarisiz:757851005483221022> **Bu komudu kullanabilmek için** <@&YETKİLİ-İD> **yetkisine sahip olmalısın!**')
- .setColor('RED')
- if (!message.member.roles.cache.get("YETKİLİ-İD")) return message.channel.send(yetkiyok)
+
+
+   let acebots = new Discord.MessageEmbed()
+ .setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`).setColor('#ff0000')
+ if (!message.member.roles.cache.get(yetkili)) return message.channel.send(acebots) //acebots  
+
+  
 	   let user = message.mentions.users.first()
     let sebep = args.slice(1).join(' ') || "Belirtilmemiş."
      if(!user) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription('<a:basarisiz:757851005483221022> Bir kişi etiketlemelisin.'))
@@ -23,7 +31,7 @@ exports.run = async(client, message, args) => {
     .addField('Yetkili', `${message.author.tag}`)
     .addField('Banlanan kişi', user)
     .addField('Sebep', sebep)
-client.channels.cache.get('LOG-KANAL-İD').send(embed)//Log Kanalı
+client.channels.cache.get(banlogkanal).send(embed)//Log Kanalı
        })
     }
  

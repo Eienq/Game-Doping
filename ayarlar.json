@@ -2,5 +2,17 @@
   "prefix": ".",
   "token": "",
   "sahip": "",
-  "erkekrol": ""
+  
+  "susturulmuş":"",
+  "cezalı":"", 
+ 
+  "banyetkili":"",
+  "jailyetkili":"",
+  "muteyetkili":"",
+  
+  "mutelog":"",
+  "banlog":"",
+  "jaillog":""  
+
+
 }

@@ -1,11 +1,19 @@
 const Discord = require('discord.js');
+const ayarlar = require("../ayarlar.json");
+
 exports.run = async (client, message, args) => {
  
-  let yetkiyok = new Discord.MessageEmbed()
- .setDescription('<a:basarisiz:757851005483221022> **Bu komudu kullanabilmek için** <@&770868327060471819> **yetkisine sahip olmalısın!**')
- .setColor('#ff0000')
- 
-if (!message.member.roles.cache.get("YETKİLİ-ROL-İD")) return message.channel.send(yetkiyok) //YETKİLİ ROL İD GİRİN
+    let yetkili = ayarlar.jailyetkili
+    let jaillogkanal = ayarlar.jaillog
+    let cezalı = ayarlar.cezalı
+
+
+
+
+   let acebots = new Discord.MessageEmbed()
+ .setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`).setColor('#ff0000')
+ if (!message.member.roles.cache.get(yetkili)) return message.channel.send(acebots) //acebots  
+  
 let kullanıcı = message.mentions.users.first()
 if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("#ff0000").setDescription('Bir üye etiketlemen gerekiyor!'));
 let user = message.mentions.users.first();
@@ -15,7 +23,7 @@ let reason = args.slice(1).join(" ")
 if(!reason) return message.channel.send(new Discord.MessageEmbed().setColor("#ff0000").setDescription("Jaile atmak için sebep belirtmelisin!"));
   
 member.roles.cache.forEach(r => {
-member.roles.add('CEZALI-ROL-İD');//Cezalı Rol İd
+member.roles.add(cezalı);
 member.roles.remove(r.id)
 
    
@@ -29,7 +37,7 @@ const logkanal = new Discord.MessageEmbed()
 .setThumbnail( message.kullanıcı.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setTimestamp()
-client.channels.cache.get('LOG-KANAL').send(logkanal)// Log Kanalı
+client.channels.cache.get(jaillogkanal).send(logkanal)// Log Kanalı
   
   let embed = new Discord.MessageEmbed() 
 .setDescription(`${kullanıcı} Adlı Kişisinin Tüm Rolleri Alınarak, <@&770901723929378836> Rolü Verildi! `) 

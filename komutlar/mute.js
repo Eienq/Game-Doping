@@ -6,12 +6,17 @@ const prefix = ayarlar.prefix;
 
 
 module.exports.run = async (bot, message, args, member) => {
+  
+      let yetkili = ayarlar.muteyetkili
+      let susturulmuş = ayarlar.susturulmuş
+      let mutelogkanal = ayarlar.mutelog
 
-   let yetkiyok = new Discord.MessageEmbed()
- .setDescription('<a:basarisiz:757851005483221022> **Bu komudu kullanabilmek için** <@&770868327748599808> **yetkisine sahip olmalısın!**')
- .setColor('#ff0000')
+
+
+   let acebots = new Discord.MessageEmbed()
+ .setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`).setColor('#ff0000')
+ if (!message.member.roles.cache.get(yetkili)) return message.channel.send(acebots) //acebots  
  
-if (!message.member.roles.cache.get("YETKİLİ İD")) return message.channel.send(yetkiyok)//Yetkili İd
  
   let mutekisi = message.guild.member(
    message.mentions.users.first() || message.guild.members.cache.get(args[0])
@@ -24,7 +29,7 @@ if (!message.member.roles.cache.get("YETKİLİ İD")) return message.channel.sen
 
   if (!mutezaman) return message.channel.send(new Discord.MessageEmbed().setColor('#ff0000').setDescription(`<a:basarisiz:757851005483221022> Lütfen bir zaman giriniz! \n 1 Saniye = 1s \n 1 Dakika = 1m \n 1 Saat = 1h \n 1 Gün = 1d`));
 
-await mutekisi.roles.add('VERİLİCEK-ROL-İD');//Verilecek Rol
+await mutekisi.roles.add(susturulmuş);
 const logkanal = new Discord.MessageEmbed()
     .setAuthor("Bir Kullanıcı Susturuldu")
     .addField("**Kullanıcı:**", `<@${mutekisi.id}>`)
@@ -35,12 +40,12 @@ const logkanal = new Discord.MessageEmbed()
     .setColor('#ffecbc')
     .setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
    .setTimestamp()
-bot.channels.cache.get('LOG KANAL İD').send(logkanal)//Log Kanalı
+bot.channels.cache.get(mutelogkanal).send(logkanal)
 message.channel.send(new Discord.MessageEmbed().setColor('#92dffe').setDescription(`<@${mutekisi.id}> adlı kullanıcı susturuldu`));
   
 
   setTimeout(function() {
-  mutekisi.roles.remove('ALINACAK ROL İD')//Alınacak Rol
+  mutekisi.roles.remove(susturulmuş)
     message.channel.send(new Discord.MessageEmbed().setColor('#bae800').setDescription(`<@${mutekisi.id}> kullanıcısının mutelenme süresi sona erdi!`)
 );
   }, ms(mutezaman));

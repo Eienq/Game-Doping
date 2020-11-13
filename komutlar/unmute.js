@@ -1,17 +1,23 @@
 const Discord = require('discord.js');
+const ayarlar = require("../ayarlar.json");
+
 exports.run = async (client, message, args) => {
  
-  let yetkiyok = new Discord.MessageEmbed()
- .setDescription('<a:basarisiz:757851005483221022> **Bu komudu kullanabilmek için** <@&YETKİLİ ROL İD> **yetkisine sahip olmalısın!**')
- .setColor('#ff0000')
- 
-if (!message.member.roles.cache.get("YETKİLİ ROL İD")) return message.channel.send(yetkiyok) //Yetkili İd
+      let yetkili = ayarlar.muteyetkili
+      let susturulmuş = ayarlar.susturulmuş
+      let mutelogkanal = ayarlar.mutelog
+
+
+
+   let acebots = new Discord.MessageEmbed()
+ .setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`).setColor('#ff0000')
+ if (!message.member.roles.cache.get(yetkili)) return message.channel.send(acebots) //acebots  
 let kullanıcı = message.mentions.users.first()
 if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription('Bir üye etiketlemen gerekiyor!'));
 let user = message.mentions.users.first();
 let rol = message.mentions.roles.first()
 let member = message.guild.member(kullanıcı)
-member.roles.remove('MUTE ROL İD')//ALINACAK ROL
+member.roles.remove(susturulmuş)//ALINACAK ROL
 
    
 
