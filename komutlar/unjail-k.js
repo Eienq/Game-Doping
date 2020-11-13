@@ -1,20 +1,28 @@
 const Discord = require('discord.js');
+const ayarlar = require("../ayarlar.json");
+
 exports.run = async (client, message, args) => {
  
-  let hata = new Discord.MessageEmbed()
- .setDescription('<a:basarisiz:757851005483221022> **Bu komudu kullanabilmek için** <@&770868327060471819> **yetkisine sahip olmalısın!**')
- .setColor('#ff0000')
+  let yetkili = ayarlar.jailyetkili
+  let jaillogkanal = ayarlar.jaillog
+  let kızrol1 = ayarlar.kızrol1
+  let kızrol2 = ayarlar.kızrol2
+  let cezalı = ayarlar.cezalı
+
+
  
-if (!message.member.roles.cache.get("YETKİLİ ROL İD")) //Yetkili Rol İd
-  return message.channel.send(hata) 
+  let acebots = new Discord.MessageEmbed()
+ .setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`).setColor('#ff0000')
+ if (!message.member.roles.cache.get(yetkili)) return message.channel.send(acebots) //acebots  
+  
 let kullanıcı = message.mentions.users.first()
 if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription('Bir üye etiketlemen gerekiyor!'));
 let user = message.mentions.users.first();
 let rol = message.mentions.roles.first()
 let member = message.guild.member(kullanıcı)
-member.roles.add('KIZ-ROL-İD')//Verilecek Kız Rol İd
-member.roles.add('KIZ-ROL-İD')//Verilecek 2. Kız Rol İd Gerekli Değilse Satırı Silin
-member.roles.remove('CEZALI-ROL-İD')//Cezalı Rol İd
+member.roles.add(kızrol1)//Verilecek Erkek Rol
+member.roles.add(kızrol2)//Verilecek 2. Erkek Rol
+member.roles.remove(cezalı)//Cezalı Rol
 
    
 
@@ -22,15 +30,15 @@ const embed1 = new Discord.MessageEmbed()
 .setAuthor('Bir Üye Cezalıya Çıkarıldı')
 .addField(`Jailden Çıkarılan Kullanıcı`,` ${kullanıcı}`)
 .addField(`Jailden Çıkaran Yetkili`,` <@${message.author.id}>`)
-.addField(`Jailden Çıkarılınca Verilen Roller`, `<@&770544171831263253>, <@&770473550431518772>`)
+.addField(`Jailden Çıkarılınca Verilen Roller`, `<@&${kızrol1}>, <@&${kızrol2}>`)
 .setColor("#ffecbc")
 .setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setTimestamp()
-client.channels.cache.get('LOG-KANAL-İD').send(embed1)//Log Kanalı İdsi
+client.channels.cache.get(jaillogkanal).send(embed1)//Log Kanal İd
   
   let embed = new Discord.MessageEmbed() 
-.setDescription(`${kullanıcı} Adlı Kişisinin <@&770901723929378836> Rolü Alınarak ,<@&770544171831263253> ve <@&770473550431518772> Rolleri Verildi! `) 
+.setDescription(`${kullanıcı} Adlı Kişisinin <@&${cezalı}> Rolü Alınarak ,<@&${kızrol1}> ve <@&${kızrol2}> Rolleri Verildi! `) 
 .setColor("#ffecbc")
 return message.channel.send(embed);
   
@@ -47,5 +55,5 @@ exports.conf = {
 exports.help = {
   name: 'uk',
   description: "Etiketlenen kişinin tüm rollerini alıp jail'e atar.",
-  usage: '!jail @etiket Sebebe'
+  usage: '!jail @etiket Sebep'
 }

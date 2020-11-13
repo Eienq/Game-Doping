@@ -29,10 +29,10 @@ const embed1 = new Discord.MessageEmbed()
 .setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setTimestamp()
-client.channels.cache.get('LOG KANAL İD').send(embed1)//KANAL İD
+client.channels.cache.get(mutelogkanal).send(embed1)//KANAL İD
   
   let embed = new Discord.MessageEmbed() 
-.setDescription(`${kullanıcı} Adlı Kişisinin <@&MUTE ROL İD> Rolü Alınarak, susturulması kaldırıldı `) 
+.setDescription(`${kullanıcı} Adlı Kişisinin <@&${susturulmuş}> Rolü Alınarak, susturulması kaldırıldı `) 
 .setColor("#92dffe")
 return message.channel.send(embed);
   

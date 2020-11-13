@@ -40,7 +40,7 @@ const logkanal = new Discord.MessageEmbed()
 client.channels.cache.get(jaillogkanal).send(logkanal)// Log Kanalı
   
   let embed = new Discord.MessageEmbed() 
-.setDescription(`${kullanıcı} Adlı Kişisinin Tüm Rolleri Alınarak, <@&770901723929378836> Rolü Verildi! `) 
+.setDescription(`${kullanıcı} Adlı Kişisinin Tüm Rolleri Alınarak, <@&${cezalı}> Rolü Verildi! `) 
 .setColor("BLACK")
 return message.channel.send(embed);
   
