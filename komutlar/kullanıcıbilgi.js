@@ -4,7 +4,7 @@ moment.locale('tr');
 
 
 exports.run = async (client, message, args) => {
-if(!message.guild.members.cache.get(client.user.id).hasPermission('BAN_MEMBERS')) return message.channel.send("Komudu kullanabilmek için `Üyeleri Yasakla` yetkisine sahip olmalısınız")
+if(!message.guild.members.cache.get(client.user.id).hasPermission('MANAGE_MESSAGES')) return message.channel.send("Komudu kullanabilmek için `Mesajları Yönet` yetkisine sahip olmalısınız")
 
 message.guild.members.ban(args[0]).then(async (member) => {
 let user;

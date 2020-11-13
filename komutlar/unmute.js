@@ -3,7 +3,7 @@ exports.run = async (client, message, args) => {
  
   let yetkiyok = new Discord.MessageEmbed()
  .setDescription('<a:basarisiz:757851005483221022> **Bu komudu kullanabilmek için** <@&YETKİLİ ROL İD> **yetkisine sahip olmalısın!**')
- .setColor('RED')
+ .setColor('#ff0000')
  
 if (!message.member.roles.cache.get("YETKİLİ ROL İD")) return message.channel.send(yetkiyok) //Yetkili İd
 let kullanıcı = message.mentions.users.first()

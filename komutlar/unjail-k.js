@@ -3,9 +3,9 @@ exports.run = async (client, message, args) => {
  
   let hata = new Discord.MessageEmbed()
  .setDescription('<a:basarisiz:757851005483221022> **Bu komudu kullanabilmek için** <@&770868327060471819> **yetkisine sahip olmalısın!**')
- .setColor('RED')
+ .setColor('#ff0000')
  
-if (!message.member.roles.cache.get("770868327060471819")) //etkili Rol İd
+if (!message.member.roles.cache.get("YETKİLİ ROL İD")) //Yetkili Rol İd
   return message.channel.send(hata) 
 let kullanıcı = message.mentions.users.first()
 if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription('Bir üye etiketlemen gerekiyor!'));

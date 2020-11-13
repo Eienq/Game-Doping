@@ -26,7 +26,7 @@ exports.run = async (client, message, args) => {
                                                           
 exports.conf = {
     enabled: true,                          
-    aliases: ["saylan"], 
+    aliases: ["say"], 
     permLevel: 0                                  
 }; 
 

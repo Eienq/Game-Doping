@@ -3,7 +3,7 @@ exports.run = async (client, message, args) => {
  
   let hata = new Discord.MessageEmbed()
  .setDescription('<a:basarisiz:757851005483221022> **Bu komudu kullanabilmek için** <@&Yetkili Rol İD> **yetkisine sahip olmalısın!**')
- .setColor('RED')
+ .setColor('#ff0000')
  
 if (!message.member.roles.cache.get("Yetkili Rol İD")) //Yetkili Rol İd
   return message.channel.send(hata) 

@@ -7,7 +7,7 @@ exports.run = function(client, message, args) {
   
 if(isNaN(args[0])) {
   var errembed = new Discord.MessageEmbed()
-    .setColor("RED")
+    .setColor("#ff0000")
     .setDescription(`Lütfen 1-100 arasında sayı belirtiniz!`)
 return message.channel.send(errembed);
 }
@@ -18,7 +18,7 @@ if (args[0] > 100) return message.reply("**100** adetten fazla mesaj silemem!")
 message.channel.bulkDelete(args[0]).then(deletedMessages => {
 if (deletedMessages.size < 1) return message.reply("Hiç mesaj silemedim! _(**14** günden önceki mesajları silemem!)_");
 })
-message.channel.send(new Discord.MessageEmbed().setColor('GREEN').setDescription(`**${args[0]}** adet mesaj başarıyla silindi!`))
+message.channel.send(new Discord.MessageEmbed().setColor('#00ff51').setDescription(`**${args[0]}** adet mesaj başarıyla silindi!`))
 };
 
 exports.conf = {
