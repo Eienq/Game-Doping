@@ -3,16 +3,16 @@ exports.run = async (client, message, args) => {
  
   let yetkiyok = new Discord.MessageEmbed()
  .setDescription('<a:basarisiz:757851005483221022> **Bu komudu kullanabilmek için** <@&770868327060471819> **yetkisine sahip olmalısın!**')
- .setColor('RED')
+ .setColor('#ff0000')
  
-if (!message.member.roles.cache.get("770868327060471819")) return message.channel.send(yetkiyok) //YETKİLİ ROL İD GİRİN
+if (!message.member.roles.cache.get("YETKİLİ-ROL-İD")) return message.channel.send(yetkiyok) //YETKİLİ ROL İD GİRİN
 let kullanıcı = message.mentions.users.first()
-if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription('Bir üye etiketlemen gerekiyor!'));
+if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("#ff0000").setDescription('Bir üye etiketlemen gerekiyor!'));
 let user = message.mentions.users.first();
 let rol = message.mentions.roles.first()
 let member = message.guild.member(kullanıcı)
 let reason = args.slice(1).join(" ")
-if(!reason) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription("Jaile atmak için sebep belirtmelisin!"));
+if(!reason) return message.channel.send(new Discord.MessageEmbed().setColor("#ff0000").setDescription("Jaile atmak için sebep belirtmelisin!"));
   
 member.roles.cache.forEach(r => {
 member.roles.add('CEZALI-ROL-İD');//Cezalı Rol İd

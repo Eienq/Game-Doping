@@ -9,7 +9,7 @@ message.member.setNickname('[AFK] '+message.member.displayName);
   var sebep = args.slice(0).join("  ");
   const sebep2 = new Discord.MessageEmbed()
   .setDescription(`**AFK moduna geçmek için bir sebep belirtmelisin.**`)
-  .setColor("RED")
+  .setColor("#ff0000")
   if(!sebep) return message.channel.send(sebep2);
   
   db.set(`afk_${user.id}`, sebep);
@@ -17,7 +17,7 @@ message.member.setNickname('[AFK] '+message.member.displayName);
   const embed = new Discord.MessageEmbed()
 
   .setDescription(` ${user.tag} **Başarıyla \`${sebep}\`Sebebiyle AFK moduna girdin.**`)
-  .setColor("GREEN")
+  .setColor("#00ff51")
 
   message.channel.send(embed)
 

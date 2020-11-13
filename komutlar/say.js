@@ -11,7 +11,7 @@ exports.run = async (client, message, args) => {
     for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;
   let  ace_kod = message.guild.members.cache.filter(m => !m.user.bot && m.user.presence.status !== "offline").size 
     const acebots  = new Discord.MessageEmbed() 
-        .setColor("RED")
+        .setColor("#ff0000")
         .addField(`<a:sagok:757855573554233396> **Sunucudaki Toplam Üye Sayısı**`,`» **${message.guild.memberCount}**`)
         .addField(`<a:sagok:757855573554233396> **Seslideki Üye Sayısı**`,`» **${count}**`) 
         .addField(`<a:sagok:757855573554233396> **Taglı Alan Üye Sayısı.**`, `» **${toplamEtiketliUyeler}**`) 
