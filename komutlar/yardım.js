@@ -5,24 +5,23 @@ var prefix = ayarlar.prefix;
 
 exports.run = async(client, message, args) => {
 
-        const yardim = new Discord.MessageEmbed()
+  let acebot = new Discord.MessageEmbed().setColor('#00ff51').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
 
-.setColor('#fff000')
+
+const ace = acebot
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setDescription(`
 > **${prefix}\`ban\`** \n
-> **${prefix}sohbet-aç \n
-> **${prefix}mute \n
-> **${prefix}unmute \n 
-> **${prefix}sohbet-kapat \n
-> **${prefix}jail \n 
-> **${prefix}unjail-e (Erkek İçin) \n
-   ${prefix}unjail-k (Kız İçin) `)
-.setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
-            
-        return message.channel.send(yardim);
+> **${prefix}\`sohbet-aç\`** \n
+> **${prefix}\`mute\`** \n
+> **${prefix}\`unmute\`** \n 
+> **${prefix}\`sohbet-kapat\`** \n
+> **${prefix}\`jail\`** \n 
+> **${prefix}\`unjail-e (Erkek İçin)\`** \n
+>  **${prefix}\`unjail-k (Kız İçin)\`** `)
+return message.channel.send(ace);
 }
-
+//evet
 exports.conf = {
 	enabled : true,
 	guildOnly : false,

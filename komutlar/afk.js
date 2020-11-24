@@ -10,9 +10,10 @@ exports.run = function(client, message, args) {
 message.member.setNickname('[AFK] '+message.member.displayName);
   var user = message.author;
   var sebep = args.slice(0).join("  ");
-  const a = acebot
+  
+  const ace = acebot
   .setDescription(`**AFK moduna geçmek için bir sebep belirtmelisin.**\n\n >Örnek Kullanım: **\`${prefix}afk <sebep>\`**`)
-  if(!sebep) return message.channel.send(sebep2);
+  if(!sebep) return message.channel.send(ace);
   
   db.set(`afk_${user.id}`, sebep);
   db.set(`afk_süre_${user.id}`, Date.now());

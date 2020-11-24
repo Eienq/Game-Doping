@@ -2,38 +2,34 @@ const Discord = require('discord.js');
 const ayarlar = require("../ayarlar.json");
 
 exports.run = async (client, message, args) => {
- 
-      let yetkili = ayarlar.muteyetkili
-      let susturulmuş = ayarlar.susturulmuş
-      let mutelogkanal = ayarlar.mutelog
+  
+    let acebot = new Discord.MessageEmbed().setColor('#70ff70').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
+    let yetkili = ayarlar.muteyetkili
+    let susturulmuş = ayarlar.susturulmuş
+    let mutelogkanal = ayarlar.mutelog
 
 
 
-   let acebots = new Discord.MessageEmbed()
- .setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`).setColor('#ff0000')
- if (!message.member.roles.cache.get(yetkili)) return message.channel.send(acebots) //acebots  
-let kullanıcı = message.mentions.users.first()
-if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription('Bir üye etiketlemen gerekiyor!'));
-let user = message.mentions.users.first();
-let rol = message.mentions.roles.first()
-let member = message.guild.member(kullanıcı)
-member.roles.remove(susturulmuş)//ALINACAK ROL
+   let acebots = acebot.setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`)
+   if (!message.member.roles.cache.get(yetkili)) return message.channel.send(acebots) //acebots  
+   let kullanıcı = message.mentions.users.first()
+   if (!kullanıcı) return message.channel.send(acebot.setDescription('Bir üye etiketlemen gerekiyor!'));
+   let user = message.mentions.users.first();
+   let rol = message.mentions.roles.first()
+   let member = message.guild.member(kullanıcı)
+   member.roles.remove(susturulmuş)
 
    
 
-const acebot = new Discord.MessageEmbed()
+const ace = acebot
 .setAuthor('Bir Üyenin Susturması Açıldı')
 .addField(`Susturulması Açan Kullanıcı`,` ${kullanıcı}`)
 .addField(`Susturmasını Açan Yetkili`,` <@${message.author.id}>`)
-.setColor("#ffecbc")
 .setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
-.setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
-.setTimestamp()
-client.channels.cache.get(mutelogkanal).send(acebot)//KANAL İD
+client.channels.cache.get(mutelogkanal).send(ace)
   
-  let acecode = new Discord.MessageEmbed() 
+  let acecode = acebot
 .setDescription(`${kullanıcı} Adlı Kişisinin <@&${susturulmuş}> Rolü Alınarak, susturulması kaldırıldı `) 
-.setColor("#92dffe")
 return message.channel.send(acecode);
   
 }

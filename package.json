@@ -1,10 +1,10 @@
 {
-  "//1": "describes your app and its dependencies",
-  "//2": "https://docs.npmjs.com/files/package.json",
-  "//3": "updating this file will download and update your packages",
+  "//1": "AceBots Gelişmiş Public Moderasyon Altyapısı",
+  "//2": "Abone Olmayı Unutmayın!",
+  "//3": "Projeyi Gizliye Alıp 'ÖNEMLİ' Kısmını Okumayı Unutmayınız...",
   "name": "hello-express",
   "version": "0.0.1",
-  "description": "A simple Node app built on Express, instantly up and running.",
+  "description": "Gelişmiş Public Moderasyon Botu Altyapısı",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -31,7 +31,7 @@
     "node": "12.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
+    "url": "https://qmi-moderasyon.glitch.me"
   },
   "license": "GPL-3.0",
   "keywords": [
