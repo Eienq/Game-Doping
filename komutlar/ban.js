@@ -5,13 +5,15 @@ const ayarlar = require("../ayarlar.json");
 
 exports.run = async(client, message, args) => {
   
-    let acebot = new Discord.MessageEmbed().setColor('#70ff70').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
-     let yetkili = ayarlar.jailyetkili
-  if (!message.member.hasPermission("BAN_ADD")) return message.channel.send(new Discord.MessageEmbed().setColor('RED').setDesciption(` Bu komutu kullanabilmek için "\`yönetici\`" yetkisine sahip olmalısın`));
+  let acebot = new Discord.MessageEmbed().setColor('#70ff70').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
+  let yetkili = ayarlar.jailyetkili
+  let banlogkanal = ayarlar.banlog
+ let acebots = acebot.setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`)
+ if (!message.member.roles.cache.get(yetkili)) return message.channel.send(acebots) //acebots  
   let user = message.mentions.users.first()
-    
+    let prefix = ayarlar.prefix
     let sebep = args.slice(1).join(' ') || "Belirtilmemiş."
-    if(!user) return message.channel.send(acebot.setDescription(`Bir kişi etiketlemelisin.`))
+    if(!user) return message.channel.send(acebot.setDescription(`**> Hatalı Kullanım...**\n> **Bir kişi etiketlemelisin!**\n > Örnek Kullanım: **\`${prefix}ban @kullanıcı <sebep>\`**`))
     if(user.id === message.author.id) return message.channel.send(acebot.setDescription('Kendini banlayamazsın.'))
     if(user.id === client.user.id) return message.channel.send(acebot.setDescription('Botu banlayamazsın.'))
     if(user.id === message.guild.ownerID) return message.channel.send(acebot.setDescription ('Sunucu sahibini banlayamazsın.'))
