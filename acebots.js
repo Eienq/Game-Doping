@@ -137,7 +137,7 @@ client.login(ayarlar.token);
 client.on("ready", () => {
   let sesegir = ayarlar.botses
   client.channels.cache.get(sesegir).join();
-  });      //Boş Bir Bot Testi Yaptığınız Kanalın ID'sini Yazın.\\
+  });    
 
 client.on('message', msg => {
   let tag = ayarlar.tag
@@ -149,6 +149,13 @@ client.on('message', msg => {
 client.on('message', msg => {
     let tag = ayarlar.tag
   if (msg.content.toLowerCase() === '.tag') {
+    msg.channel.send(` \`${tag}\` `);
+  }
+});
+
+client.on('message', msg => {
+    let tag = ayarlar.tag
+  if (msg.content.toLowerCase() === '!tag') {
     msg.channel.send(` \`${tag}\` `);
   }
 });

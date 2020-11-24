@@ -5,9 +5,9 @@
   "name": "hello-express",
   "version": "0.0.1",
   "description": "Gelişmiş Public Moderasyon Botu Altyapısı",
-  "main": "index.js",
+  "main": "acebots.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node acebots.js"
   },
   "dependencies": {
     "ascii-table": "^0.0.9",
