@@ -1,35 +1,26 @@
 const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
-  if (!message.member.hasPermission("MANAGE_CHANNELS"))
-    return message.channel.send(
-      new Discord.MessageEmbed()
-        .setColor("#ff0000")
-        .setDescription(
-          "Sohbet Kanalını Açabilmeniz İçin `Kanalları Yönet` Yetkisine Sahip Olmalısın.",
-        )
-     
-    );
+  
+    let acebot = new Discord.MessageEmbed().setColor('#70ff70').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
 
-  let every = message.guild.roles.cache.find(r => r.name === "@everyone");
-  message.channel.createOverwrite(every, {
-    SEND_MESSAGES: null
-  });
+  
+  if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send(acebot.setDescription("Sohbet Kanalını Açabilmeniz İçin `Kanalları Yönet` Yetkisine Sahip Olmalısın."));
+
+  let herkez = message.guild.roles.cache.find(r => r.name === "@everyone");
+  message.channel.createOverwrite(herkez, {SEND_MESSAGES: null});
 
 
-  message.channel.send(new Discord.MessageEmbed().setColor('GREEN').setDescription(
-    "**Sohbet Kanalı Başarıyla Açıldı.**"
-  ));
-};
+  message.channel.send(acebot.setDescription("**Sohbet Kanalı Başarıyla Açıldı.**"));};
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["sohbet-a"],
+  aliases: [],
   permLevel: 0
 };
 
 exports.help = {
   name: 'sohbet-aç',
-  description: 'İstediğiniz kişiyi uyarır.',
-  usage: 'aç'
+  description: `Sohbeti Everyone'a Açıp Kapatırsınız`,
+  usage: '!sohbet-aç'
 };

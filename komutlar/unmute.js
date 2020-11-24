@@ -21,7 +21,7 @@ member.roles.remove(susturulmuş)//ALINACAK ROL
 
    
 
-const embed1 = new Discord.MessageEmbed()
+const acebot = new Discord.MessageEmbed()
 .setAuthor('Bir Üyenin Susturması Açıldı')
 .addField(`Susturulması Açan Kullanıcı`,` ${kullanıcı}`)
 .addField(`Susturmasını Açan Yetkili`,` <@${message.author.id}>`)
@@ -29,12 +29,12 @@ const embed1 = new Discord.MessageEmbed()
 .setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setTimestamp()
-client.channels.cache.get(mutelogkanal).send(embed1)//KANAL İD
+client.channels.cache.get(mutelogkanal).send(acebot)//KANAL İD
   
-  let embed = new Discord.MessageEmbed() 
+  let acecode = new Discord.MessageEmbed() 
 .setDescription(`${kullanıcı} Adlı Kişisinin <@&${susturulmuş}> Rolü Alınarak, susturulması kaldırıldı `) 
 .setColor("#92dffe")
-return message.channel.send(embed);
+return message.channel.send(acecode);
   
 }
 

@@ -6,10 +6,10 @@ exports.run = function(client, message, args) {
   if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply(`Bu komutu kullanabilmek için **Mesajları Yönet** iznine sahip olmalısın!`);
   
 if(isNaN(args[0])) {
-  var errembed = new Discord.MessageEmbed()
+  var acebot = new Discord.MessageEmbed()
     .setColor("#ff0000")
     .setDescription(`Lütfen 1-100 arasında sayı belirtiniz!`)
-return message.channel.send(errembed);
+return message.channel.send(acebot);
 }
   
 if (args[0] < 1) return message.reply("**1** adetten az mesaj silemem!")

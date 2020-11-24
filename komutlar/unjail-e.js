@@ -26,7 +26,7 @@ member.roles.remove(cezalı)//Cezalı Rol
 
    
 
-const embed1 = new Discord.MessageEmbed()
+const ikrudka = new Discord.MessageEmbed()
 .setAuthor('Bir Üye Cezalıya Çıkarıldı')
 .addField(`Jailden Çıkarılan Kullanıcı`,` ${kullanıcı}`)
 .addField(`Jailden Çıkaran Yetkili`,` <@${message.author.id}>`)
@@ -35,12 +35,12 @@ const embed1 = new Discord.MessageEmbed()
 .setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setTimestamp()
-client.channels.cache.get(jaillogkanal).send(embed1)//Log Kanal İd
+client.channels.cache.get(jaillogkanal).send(ikrudka)//Log Kanal İd
   
-  let embed = new Discord.MessageEmbed() 
+  let acebot = new Discord.MessageEmbed() 
 .setDescription(`${kullanıcı} Adlı Kişisinin <@&${cezalı}> Rolü Alınarak ,<@&${erkekrol1}> ve <@&${erkekrol2}> Rolleri Verildi! `) 
 .setColor("#ffecbc")
-return message.channel.send(embed);
+return message.channel.send(acebot);
   
 }
 
