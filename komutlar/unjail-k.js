@@ -2,7 +2,8 @@ const Discord = require('discord.js');
 const ayarlar = require("../ayarlar.json");
 
 exports.run = async (client, message, args) => {
- 
+  
+  let acebot = new Discord.MessageEmbed().setColor('#70ff70').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
   let yetkili = ayarlar.jailyetkili
   let jaillogkanal = ayarlar.jaillog
   let kızrol1 = ayarlar.kızrol1
@@ -11,35 +12,31 @@ exports.run = async (client, message, args) => {
 
 
  
-  let acebots = new Discord.MessageEmbed()
- .setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`).setColor('#ff0000')
+  let acebots = acebot
+ .setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`)
  if (!message.member.roles.cache.get(yetkili)) return message.channel.send(acebots) //acebots  
   
 let kullanıcı = message.mentions.users.first()
-if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription('Bir üye etiketlemen gerekiyor!'));
+if (!kullanıcı) return message.channel.send(acebot.setDescription('Bir üye etiketlemen gerekiyor!'));
 let user = message.mentions.users.first();
 let rol = message.mentions.roles.first()
 let member = message.guild.member(kullanıcı)
-member.roles.add(kızrol1)//Verilecek Erkek Rol
-member.roles.add(kızrol2)//Verilecek 2. Erkek Rol
-member.roles.remove(cezalı)//Cezalı Rol
+member.roles.add(kızrol1)
+member.roles.add(kızrol2)
+member.roles.remove(cezalı)
 
    
 
-const acebot = new Discord.MessageEmbed()
+const acebotss = acebot
 .setAuthor('Bir Üye Cezalıya Çıkarıldı')
 .addField(`Jailden Çıkarılan Kullanıcı`,` ${kullanıcı}`)
 .addField(`Jailden Çıkaran Yetkili`,` <@${message.author.id}>`)
 .addField(`Jailden Çıkarılınca Verilen Roller`, `<@&${kızrol1}>, <@&${kızrol2}>`)
-.setColor("#ffecbc")
 .setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
-.setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
-.setTimestamp()
-client.channels.cache.get(jaillogkanal).send(acebot)//Log Kanal İd
+client.channels.cache.get(jaillogkanal).send(acebotss)//Log Kanal İd
   
-  let acecode = new Discord.MessageEmbed() 
+  let acecode = acebot
 .setDescription(`${kullanıcı} Adlı Kişisinin <@&${cezalı}> Rolü Alınarak ,<@&${kızrol1}> ve <@&${kızrol2}> Rolleri Verildi! `) 
-.setColor("#ffecbc")
 return message.channel.send(acecode);
   
 }
@@ -53,7 +50,7 @@ exports.conf = {
 }
 
 exports.help = {
-  name: 'uk',
+  name: 'unjail-kız',
   description: "Etiketlenen kişinin tüm rollerini alıp jail'e atar.",
   usage: '!jail @etiket Sebep'
 }

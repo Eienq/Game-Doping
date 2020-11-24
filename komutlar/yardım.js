@@ -7,9 +7,17 @@ exports.run = async(client, message, args) => {
 
         const yardim = new Discord.MessageEmbed()
 
-             .setColor('#fff000')
-             .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
-    .setDescription( `<a:sagok:757855573554233396> ${prefix}ban \n <a:sagok:757855573554233396> ${prefix}sohbet-aç \n <a:sagok:757855573554233396> .mute \n <a:sagok:757855573554233396> .unmute \n <a:sagok:757855573554233396> ${prefix}sohbet-kapat \n <a:sagok:757855573554233396> ${prefix}jail \n <a:sagok:757855573554233396> ${prefix}unjail-e (Erkek İçin) \n <a:sagok:757855573554233396> ${prefix}unjail-k (Kız İçin) `)
+.setColor('#fff000')
+.setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
+.setDescription(`
+> **${prefix}\`ban\`** \n
+> **${prefix}sohbet-aç \n
+> **${prefix}mute \n
+> **${prefix}unmute \n 
+> **${prefix}sohbet-kapat \n
+> **${prefix}jail \n 
+> **${prefix}unjail-e (Erkek İçin) \n
+   ${prefix}unjail-k (Kız İçin) `)
 .setFooter(`Geliştirici qmi <3`, message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
             
         return message.channel.send(yardim);

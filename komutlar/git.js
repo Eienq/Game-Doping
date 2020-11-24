@@ -6,7 +6,7 @@ const ayarlar = require("../ayarlar.json");
 exports.run = async (client, message, args) => {
 let prefix = ayarlar.prefix;
 if(!message.member.permissions.has('MOVE_MEMBERS')) return message.channel.send(new Discord.MessageEmbed()
-.setDescription(`**Bu Komudu Kullanabilmek İçin, \`Üyeleri Taşı\` Yetkisine Sahip Olmalısın.**`));
+.setDescription(`**Bu Komudu Kullanabilmek İçin, **\`Üyeleri Taşı\`** Yetkisine Sahip Olmalısın.**`));
 
 if(message.member.voice.channel == undefined) return message.channel.send(new Discord.MessageEmbed()
 .setDescription('Bir Sesli Kanalda Değilsin!'))
