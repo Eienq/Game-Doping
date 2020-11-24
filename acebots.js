@@ -160,8 +160,3 @@ client.on('message', msg => {
   }
 });
 
-client.on('message', msg => {
-  
-
-  client.channels.cache.get("780803253897789450").send('x')
-}, 6000)
