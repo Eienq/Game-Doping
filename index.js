@@ -135,7 +135,7 @@ client.login(ayarlar.token);
 
 
 client.on("ready", () => {
-  client.channels.cache.get("775350593417510983").join();
+  client.channels.cache.get("780723071358337059").join();
   });      //Boş Bir Bot Testi Yaptığınız Kanalın ID'sini Yazın.\\
 
 client.on('message', msg => {

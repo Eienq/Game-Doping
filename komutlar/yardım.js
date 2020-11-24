@@ -10,15 +10,16 @@ exports.run = async(client, message, args) => {
 
 const ace = acebot
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
+.setAuthor(`V1-Geliştirilmiş-Public-Moderasyon-Botu-v12`)
 .setDescription(`
-> **${prefix}\`ban\`** \n
-> **${prefix}\`sohbet-aç\`** \n
-> **${prefix}\`mute\`** \n
-> **${prefix}\`unmute\`** \n 
-> **${prefix}\`sohbet-kapat\`** \n
-> **${prefix}\`jail\`** \n 
-> **${prefix}\`unjail-e (Erkek İçin)\`** \n
->  **${prefix}\`unjail-k (Kız İçin)\`** `)
+> **\`${prefix}ban\`** \n
+> **\`${prefix}sohbet-aç\`** \n
+> **\`${prefix}mute\`** \n
+> **\`${prefix}unmute\`** \n 
+> **\`${prefix}sohbet-kapat\`** \n
+> **\`${prefix}jail\`** \n
+> **\`${prefix}unjail-e (Erkek İçin)\`** \n
+> **\`${prefix}unjail-k (Kız İçin)\`** `)
 return message.channel.send(ace);
 }
 //evet

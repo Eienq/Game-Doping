@@ -1,32 +1,40 @@
 const Discord = require('discord.js');
-const data = require('quick.db');
-const ayarlar = require("../ayarlar.json");
 
+exports.run = async (client, message, emoji, args) => {
+  
+      let acebot = new Discord.MessageEmbed().setColor('#70ff70').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
 
-exports.run = async (client, message, args) => {
-let prefix = ayarlar.prefix;
-if(!message.member.permissions.has('MOVE_MEMBERS')) return message.channel.send(new Discord.MessageEmbed()
-.setDescription(`**Bu Komudu Kullanabilmek İçin, **\`Üyeleri Taşı\`** Yetkisine Sahip Olmalısın.**`));
-
-if(message.member.voice.channel == undefined) return message.channel.send(new Discord.MessageEmbed()
-.setDescription('Bir Sesli Kanalda Değilsin!'))
-if(!message.mentions.members.first()) return message.channel.send(new Discord.MessageEmbed()
-.setDescription('Bir Kullanıcı Etiketle!'));
-
-if(message.author.id === message.mentions.members.first()) return;
-if(message.mentions.members.first().voice.channel == undefined) return message.channel.send(new Discord.MessageEmbed()
-.setDescription(`Etiketlediğin ${message.mentions.members.first()} Sesli kanalda yok.`))
-message.guild.members.cache.get(message.author.id).voice.setChannel(message.mentions.members.first().voice.channel.id);
+	let uye = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+  if (!uye) return message.channel.send(acebot.setDescription("Ses odasına gidilecek üyeyi belirtmelisin!")).then(x => x.delete({timeout: 5000}));
+  if (!message.member.voice.channel || !uye.voice.channel || message.member.voice.channelID == uye.voice.channelID) return message.channel.send(new Discord.MessageEmbed().setDescription("Belirtilen üyenin ve kendinin ses kanalında olduğundan emin ol!")).then(x => x.delete({timeout: 5000}));
+  if (message.member.hasPermission("ADMINISTRATOR")) {
+    await message.member.voice.setChannel(uye.voice.channelID);
+  } else {
+    const reactionFilter = (reaction, user) => {
+      return ['✅'].includes(reaction.emoji.name) && user.id === uye.id;
+    };
+    message.channel.send(`${uye}`, {embed: new Discord.MessageEmbed().setAuthor(uye.displayName, uye.user.avatarURL({dynamic: true, size: 2048})).setDescription(`${message.author} senin ses kanalına girmek için izin istiyor! Onaylıyor musun?`)}).then(async msj => {
+      await msj.react('✅');
+      msj.awaitReactions(reactionFilter, {max: 1, time: 15000, error: ['time']}).then(c => {
+	let cevap = c.first();
+	if (cevap) {
+	  message.member.voice.setChannel(uye.voice.channelID);
+          msj.delete();
+	};
+      });
+    });
+  };
 };
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: [""],
+  aliases: [],
+  kategori: "Yetkili Komutları",
   permLevel: 0
 }
 
 exports.help = {
   name: 'git',
-  description: 'Seslide ki Bir Üyenin Yanına Gidersiniz.',
-  usage: 'git'
-};
+  description: "Etiketlenen kişinin tüm rollerini alıp jail'e atar.",
+  usage: '.jail @etiket Sebep'
+}
