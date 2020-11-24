@@ -1,37 +1,97 @@
-const codare = require("discord.js")
+const Discord = require('discord.js')
+ 
+exports.run = async (client, message, args) => {
+        if(args[0] && isNaN(args[0])) {
+                const embed = new Discord.RichEmbed()
+                       .setDescription(`Doğru Kullanım \n **.çek <kazanacak-kişi-sayısı> , <@yedek-üye-sayısı> \n\n Örnek Kullanım:** \n .çek 3 3`)
+                        .setColor("RANDOM")
+                        .setTimestamp()
+                message.channel.send({embed})
+                return
+        }
+ 
+        if(args[1] && isNaN(args[1])) {
+                const embed = new Discord.RichEmbed()
+                 .setDescription(`Doğru Kullanım \n **.çek <kazanacak-kişi-sayısı> , <@yedek-üye-sayısı> \n\n Örnek Kullanım:** \n .çek 3 3`)
+                        .setColor("RANDOM")
+                        .setTimestamp()
+                message.channel.send({embed})
+                return
+        }
+ 
+        if(!args[0]) {
+                const embed = new Discord.RichEmbed()
+                  .setDescription(`Doğru Kullanım \n **.çek <kazanacak-kişi-sayısı> , <@yedek-üye-sayısı> \n\n Örnek Kullanım:** \n .çek 3 3`)
+                        .setColor("RANDOM")
+                        .setTimestamp()
+                message.channel.send({embed})
+                return
+        }
+ 
+        if(!args[1]) {
+                const embed = new Discord.RichEmbed()
+                        .setDescription(`Doğru Kullanım \n **.çek <kazanacak-kişi-sayısı> , <@yedek-üye-sayısı>**`)
+                        .setColor("RANDOM")
+                        .setTimestamp()
+                message.channel.send({embed})
+                return
+        }
 
-exports.run = async function(client, message, args) {
-
-if (!args.join(" ")) return message.reply("Öncelikle bir hediye girmelisin.")
-
-const Hediye = args.join(" ");
-const kişiler = message.guild.members.cache.filter(user => !user.user.bot).map(Member => Member.id)
-
-const RastgeleKişiÇek = Math.floor(Math.random() * kişiler.size)
-
-const Array = kişiler;
-const RandomKişi = Array[RastgeleKişiÇek]
-
-const Kazanan = client.users.cache.get(RandomKişi)
-kişiler
-message.channel.send(`\`${Hediye}\` ödülü için kullanıcı çekiliyor... ${kişiler.size}`).then(m => {
-const embed = new codare.MessageEmbed()
-.setColor('GREEN')
-.addField(`**Kazanan:**`, `<@${Kazanan.tag}>`)
-.addField(`**Kazandığı Ödül**`, Hediye)
-.setTimestamp()
-.setFooter(`CodAre`)
-m.edit({embed: embed})
-})
+if(args[0] <= 0) {
+                const embed = new Discord.RichEmbed()
+                        .setDescription(`Lütfen sıfırdan büyük bir sayı yazın!`)
+                        .setColor("RANDOM")
+                        .setTimestamp()
+                message.channel.send({embed})
+                return
+  
 }
+ if(args[1] <= 0) {
+                const embed = new Discord.RichEmbed()
+                        .setDescription(`Lütfen sıfırdan büyük bir sayı yazın!`)
+                        .setColor("RANDOM")
+                        .setTimestamp()
+                message.channel.send({embed})
+                return
+        }
+ 
+        if(Number(Number(args[0]) + Number(args[1])) > Number(message.guild.members.filter(k => !k.user.bot).size)) return message.channel.send(`Girdiğiniz değerlerin toplamı fazla büyük! lütfen sunucudaki üye sayısından değerinden küçük olsun!`)
+
+        var gg = ''
+        var ggk = []
+        var gg2 = ''
+        var gg2k = []
+ 
+        for(var i = 0; i < args[0]; i++) {
+                var u = message.guild.members.filter(k=> !k.user.bot && !ggk.includes(k.user.id)).random().id
+                gg += `${i+1}. <@${u}>\n`
+                ggk.push(u)
+        }
+ 
+        for(var z = 0; z < args[1]; z++) {
+                var u = message.guild.members.filter(k=> !k.user.bot && !ggk.includes(k.user.id) && !gg2k.includes(k.user.id)).random().id
+                gg2 += `${z+1}. <@${u}>\n`
+                gg2k.push(u)
+        }
+ 
+ 
+        const embed = new Discord.RichEmbed()
+                .setAuthor(`Rastgele Üye Sonuçları`)
+                .setDescription(`Kazananlar:\n${gg}\nYedek Kazananlar:\n${gg2}`)
+                .setColor("RANDOM")
+                .setTimestamp()
+        message.channel.send({embed})
+}
+ 
 exports.conf = {
-enabled: true,
-guildOnly: true,
-aliases: ["random-kişi", "çekiliş"],
-permLevel: 0
+        enabled: true,
+        guildOnly: true,
+        aliases: ['çek', 'şanslı-kişi', 'rastgeleüye'],
+        permLevel: 2
 }
+ 
 exports.help = {
-name: "rastgele-kişi",
-description: 'Ratgele kişi seçer.',
-usage: "rastgele-kişi"
+        name: 'çekk',
+        description: 'Rastgele üye çekmenizi sağlar.',
+        usage: 'çek [kazanan sayısı] [yedek sayısı]'
 }
