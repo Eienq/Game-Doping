@@ -24,10 +24,22 @@ exports.run = async(client, message, args) => {
       const tamam2 = m.createReactionCollector(tamam)
 
    tamam2.on('collect', async (r)=>{message.guild.members.cache.get(user.id).ban({reason: `${sebep}`})
-      let embed = acebot.setDescription(`${user} adlı kullanıcı ${message.author.id} tarafından \`${sebep}\` sebebi ile banlandı. `)
+      let embed = acebot.setDescription(`${user} adlı kullanıcı ${message.author.name} tarafından \`${sebep}\` sebebi ile banlandı. `)
     message.channel.send(embed)
+     let sa = acebot
+    .setColor('GREEN')
+    .setTitle('Kişi banlandı')
+    .addField('Banlanan kişi', `${user.tag}`)
+    .addField('Yetkili', `${message.author.tag}`)
+    .addField('Sebep', sebep)
+client.channels.cache.get(banlogkanal).send(sa)//Log Kanalı
        })
     })
+     
+    
+                                     
+     
+     
     await m.react('❌').then(r =>{ 
 
    const tamam = (reaction,user) => reaction.emoji.name == '❌' && user.id == message.author.id;
