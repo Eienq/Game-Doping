@@ -12,7 +12,7 @@ const ace = acebot
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setAuthor(`V1-Geliştirilmiş-Public-Moderasyon-Botu-v12`)
 .setDescription(`
-> **\`${prefix}ban -> .ban @üye sebep\`** \n
+> **\`${prefix}ban -> .ban @üye <sebep>\`** \n
 > **\`${prefix}git -> .git @üye\`** \n
 > **\`${prefix}çek -> .çek @üye\`** \n
 > **\`${prefix}sohbet-aç -> .sohbet-aç\`** \n
@@ -24,7 +24,6 @@ const ace = acebot
 > **\`${prefix}unjail-k (Kız İçin) -> .uk @üye\`** `)
 return message.channel.send(ace);
 }
-//evet
 exports.conf = {
 	enabled : true,
 	guildOnly : false,

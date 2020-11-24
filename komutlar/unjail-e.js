@@ -44,7 +44,7 @@ return message.channel.send(acecode);
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["unjail-e","uerkek"],
+  aliases: ["ue"],
   permLevel: 0
 }
 //acebots  

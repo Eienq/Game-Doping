@@ -44,7 +44,7 @@ return message.channel.send(acecode);
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["unjail-k","ukız"],
+  aliases: ["uk"],
   kategori: "Yetkili Komutları",
   permLevel: 0
 }
