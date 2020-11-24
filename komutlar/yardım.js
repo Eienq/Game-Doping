@@ -12,9 +12,12 @@ const ace = acebot
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setAuthor(`V1-Geliştirilmiş-Public-Moderasyon-Botu-v12`)
 .setDescription(`
+> **\`${prefix}afk -> .afk <sebep>\`** \n
 > **\`${prefix}ban -> .ban @üye <sebep>\`** \n
 > **\`${prefix}git -> .git @üye\`** \n
 > **\`${prefix}çek -> .çek @üye\`** \n
+> **\`${prefix}say -> .say\`** \n
+> **\`${prefix}şikayet -> .şikayet -> .şikayet <Şikayetiniz>\`** \n
 > **\`${prefix}sohbet-aç -> .sohbet-aç\`** \n
 > **\`${prefix}sohbet-kapat -> .sohbet-kapat\`** \n
 > **\`${prefix}mute -> .mute @üye <Süre> <Sebep>\`** \n

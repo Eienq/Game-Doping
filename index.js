@@ -135,17 +135,20 @@ client.login(ayarlar.token);
 
 
 client.on("ready", () => {
-  client.channels.cache.get("780723071358337059").join();
+  let sesegir = ayarlar.botses
+  client.channels.cache.get(sesegir).join();
   });      //Boş Bir Bot Testi Yaptığınız Kanalın ID'sini Yazın.\\
 
 client.on('message', msg => {
+  let tag = ayarlar.tag
   if (msg.content.toLowerCase() === 'tag') {
-    msg.channel.send('`\∡`\ ');
+    msg.channel.send(` \`${tag}\` `);
   }
 });
 
 client.on('message', msg => {
+    let tag = ayarlar.tag
   if (msg.content.toLowerCase() === '.tag') {
-    msg.channel.send('`\∡`\ ');
+    msg.channel.send(` \`${tag}\` `);
   }
 });
