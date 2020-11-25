@@ -3,7 +3,6 @@ const ayarlar = require("../ayarlar.json");
 //acebots  
 exports.run = async (client, message, args) => {
  let prefix = ayarlar.prefix 
- let acebot = new Discord.MessageEmbed().setColor('#70ff70').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
  let yetkili = ayarlar.jailyetkili
  let jaillogkanal = ayarlar.jaillog
  let erkekrol1 = ayarlar.erkekrol1
@@ -11,11 +10,11 @@ exports.run = async (client, message, args) => {
  let cezalı = ayarlar.cezalı
 
 
-let acebots = acebot.setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`)
+let acebots = new Discord.MessageEmbed().setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`)
 if (!message.member.roles.cache.get(yetkili)) return message.channel.send(acebots) //acebots  
   
 let kullanıcı = message.mentions.users.first()
-if (!kullanıcı) return message.channel.send(acebot.setDescription(`Lütfen Bir Üye Etiketle!\n\n >Doğru Kullanım: **\`${prefix}unjail <@kullanıcı>\`**`));
+if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setDescription(`Lütfen Bir Üye Etiketle!\n\n >Doğru Kullanım: **\`${prefix}unjail <@kullanıcı>\`**`));
 
 let user = message.mentions.users.first();
 let rol = message.mentions.roles.first()//acebots  
@@ -27,7 +26,7 @@ member.roles.remove(cezalı)
 //acebots  
    
 
-const ikrudka = acebot
+const ikrudka = new Discord.MessageEmbed()
 .setAuthor('Bir Üye Cezalıdan Çıkarıldı')
 .addField(`Jailden Çıkarılan Kullanıcı`,` ${kullanıcı}`)
 .addField(`Jailden Çıkaran Yetkili`,` <@${message.author.id}>`)
@@ -35,7 +34,7 @@ const ikrudka = acebot
 .setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 client.channels.cache.get(jaillogkanal).send(ikrudka)
   
-  let acecode = acebot//acebots  
+  let acecode = new Discord.MessageEmbed()//acebots  
 .setDescription(`${kullanıcı} Adlı Kişisinin <@&${cezalı}> Rolü Alınarak ,<@&${erkekrol1}> ve <@&${erkekrol2}> Rolleri Verildi! `) 
 return message.channel.send(acecode);
   

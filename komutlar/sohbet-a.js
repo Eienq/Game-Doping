@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
   let herkez = message.guild.roles.cache.find(r => r.name === "@everyone");
   message.channel.createOverwrite(herkez, {SEND_MESSAGES: null});
 
-  message.channel.send(acebot.setDescription("**Sohbet Kanalı Başarıyla Açıldı.**"));
+  message.channel.send(new Discord.MessageEmbed().setDescription("**Sohbet Kanalı Başarıyla Açıldı.**"));
 
 };
 exports.conf = {

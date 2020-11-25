@@ -5,10 +5,9 @@ var prefix = ayarlar.prefix;
 
 exports.run = async(client, message, args) => {
 
-  let acebot = new Discord.MessageEmbed().setColor('#00ff51').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
 
 
-const ace = acebot
+const ace = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setAuthor(`V1-Geliştirilmiş-Public-Moderasyon-Botu-v12`)
 .setDescription(`
