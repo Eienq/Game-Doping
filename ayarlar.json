@@ -1,9 +1,9 @@
 {
   "prefix": ".",
-  "token": "NzgxMDk0NTI0NTI0NDI5MzEy.X74o9g.WooXAcTS35IjbfkGKCrBmCf3Gpw",
+  "token": "NzgxMTE5Njc1MTI3MzAwMTA3.X75AYw.x-ffiSm2-qABXsPVre-hSA6Dbc0",
   "sahip": "719544021760081983",
   
-  "durum": "Moderasyon Altyapı",
+  "durum": "Youtube/Ikrudka",
   "botses": "781095703829151764",
   
   "susturulmuş":"781092125541531688",
@@ -13,15 +13,15 @@
   "jailyetkili":"781074467094921236",
   "muteyetkili":"781074467094921236",
   
-  "mutelog":"781091273037316116",
-  "banlog":"781091273037316116",
-  "jaillog":"781091273037316116",
-  "sikayet":"781091273037316116",
+  "mutelog":"781117694044143657",
+  "banlog":"781117694044143657",
+  "jaillog":"781117694044143657",
+  "sikayet":"781117694044143657",
   
-  "erkekrol1":"",
-  "erkekrol2":"",
-  "kızrol1":"",
-  "kızrol2":"",
+  "erkekrol1":"781118935290478612",
+  "erkekrol2":"781118989576437761",
+  "kızrol1":"781119015300497419",
+  "kızrol2":"781119040357007380",
 
   "tag":""
 }
