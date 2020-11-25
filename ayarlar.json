@@ -1,27 +1,27 @@
 {
   "prefix": ".",
-  "token": "NzgxMTY4NzgzMzg4ODM1ODUw.X75uHw.zZlaSVPB9UzLaFmczKL6PG-9_ZM",
-  "sahip": "719544021760081983",
+  "token": "BOT TOKEN",
+  "sahip": "İDNİZ",
   
-  "durum": "Youtube/Ikrudka",
-  "botses": "781167979341021236",
+  "durum": "BOT DURUM",
+  "botses": "BOTU SESE SOKMAK İÇİN",
   
-  "susturulmuş":"781092125541531688",
-  "cezalı":"781092127794528286", 
+  "susturulmuş":"MUTE ROL İD",
+  "cezalı":"CEZALI ROL İD", 
  
-  "banyetkili":"781074467094921236",
-  "jailyetkili":"781074467094921236",
-  "muteyetkili":"781074467094921236",
+  "banyetkili":"BAN YETKİLİ İD",
+  "jailyetkili":"JAİL YETKİLİ İD",
+  "muteyetkili":"MUTE YETKİLİ İD",
   
-  "mutelog":"781167820229967934",
-  "banlog":"781167820229967934",
-  "jaillog":"781167885963755540",
-  "sikayet":"781167920512106547",
+  "mutelog":"MUTE LOG KANAL İD",
+  "banlog":"BAN LOG KANAL İD",
+  "jaillog":"JAİL LOG KANAL İD",
+  "sikayet":"ŞİKAYET KANALI İD",
   
-  "erkekrol1":"781118935290478612",
-  "erkekrol2":"781118989576437761",
-  "kızrol1":"781119015300497419",
-  "kızrol2":"781119040357007380",
+  "erkekrol1":"ERKEK ROL 1 İD",
+  "erkekrol2":"ERKEK ROL 2 İD",
+  "kızrol1":"KIZ ROL 1 İD",
+  "kızrol2":"KIZ ROL 2 İD",
 
-  "tag":"♛"
+  "tag":"TAGINIZ!"
 }
