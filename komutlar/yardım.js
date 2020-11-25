@@ -16,10 +16,10 @@ const ace = new Discord.MessageEmbed()
 > **\`${prefix}git -> .git @üye\`** \n
 > **\`${prefix}çek -> .çek @üye\`** \n
 > **\`${prefix}say -> .say\`** \n
-> **\`${prefix}şikayet -> .şikayet -> .şikayet <Şikayetiniz>\`** \n
+> **\`${prefix}şikayet -> .şikayet <Şikayetiniz>\`** \n
 > **\`${prefix}sohbet-aç -> .sohbet-aç\`** \n
 > **\`${prefix}sohbet-kapat -> .sohbet-kapat\`** \n
-> **\`${prefix}mute -> .mute @üye <Süre> <Sebep>\`** \n
+> **\`${prefix}smute -> .smute @üye <Süre> <Sebep>\`** \n
 > **\`${prefix}unmute -> .unmute @üye\`** \n 
 > **\`${prefix}jail -> .jail @üye <Sebep>\`** \n
 > **\`${prefix}unjail-e (Erkek İçin) -> .ue @üye\`** \n
