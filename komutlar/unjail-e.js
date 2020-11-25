@@ -10,11 +10,11 @@ exports.run = async (client, message, args) => {
  let cezalı = ayarlar.cezalı
 
 
-let acebots = new Discord.MessageEmbed().setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`)
+let acebots = new Discord.MessageEmbed().setColor("#ff0000").setDescription(`**Bu komudu kullanabilmek için **\`<@&${yetkili}>\`** yetkisine sahip olmalısın!**`)
 if (!message.member.roles.cache.get(yetkili)) return message.channel.send(acebots) //acebots  
   
 let kullanıcı = message.mentions.users.first()
-if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setDescription(`Lütfen Bir Üye Etiketle!\n\n >Doğru Kullanım: **\`${prefix}unjail <@kullanıcı>\`**`));
+if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("#0200ff").setDescription(`> **Lütfen Bir Üye Etiketle!**\n\n> Doğru Kullanım: **\`${prefix}unjail-e <@kullanıcı>\`**`));
 
 let user = message.mentions.users.first();
 let rol = message.mentions.roles.first()//acebots  
@@ -43,7 +43,7 @@ return message.channel.send(acecode);
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["ue"],
+  aliases: ["ue","unjail-e","unjaile"],
   permLevel: 0
 }
 //acebots  

@@ -24,6 +24,7 @@ const ace = new Discord.MessageEmbed()
 > **\`${prefix}jail -> .jail @üye <Sebep>\`** \n
 > **\`${prefix}unjail-e (Erkek İçin) -> .ue @üye\`** \n
 > **\`${prefix}unjail-k (Kız İçin) -> .uk @üye\`** `)
+.setColor("#00ff51")
 return message.channel.send(ace);
 }
 exports.conf = {

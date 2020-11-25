@@ -30,7 +30,7 @@ const ace = new Discord.MessageEmbed()
 .addField(`Jaile Atan Yetkili`,` <@${message.author.id}>`)
 .addField(`Jaile Atılma Sebebi`, `${reason} `)
 .setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
-.setColor
+.setColor('AQUA')
 client.channels.cache.get(jaillogkanal).send(ace)// Ace Bots
   
   let acecode = new Discord.MessageEmbed()

@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const ayarlar = require("../ayarlar.json");
 
 exports.run = async (client, message, args) => {
-  
+  let prefix = ayarlar.prefix
   let yetkili = ayarlar.jailyetkili
   let jaillogkanal = ayarlar.jaillog
   let kızrol1 = ayarlar.kızrol1
@@ -16,7 +16,7 @@ exports.run = async (client, message, args) => {
  if (!message.member.roles.cache.get(yetkili)) return message.channel.send(acebots) //acebots  
   
 let kullanıcı = message.mentions.users.first()
-if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setDescription('Bir üye etiketlemen gerekiyor!'));
+if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setColor("#ff0000").setDescription(`> **Lütfen Bir Üye Etiketle!**\n\n> Doğru Kullanım: **\`${prefix}unjail-k <@kullanıcı>\`**`));
 let user = message.mentions.users.first();
 let rol = message.mentions.roles.first()
 let member = message.guild.member(kullanıcı)
@@ -43,7 +43,7 @@ return message.channel.send(acecode);
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["uk"],
+  aliases: ["uk","unjail-k","unjailk"],
   kategori: "Yetkili Komutları",
   permLevel: 0
 }
