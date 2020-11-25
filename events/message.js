@@ -24,7 +24,7 @@ const ms = require('parse-ms');
     db.delete(`afk_${message.author.id}`);
     db.delete(`afk_süre_${message.author.id}`);
     const muah2  = new Discord.MessageEmbed()
-    .setDescription(`${message.author.tag} adlı kullanıcı \`${REASON}\` sebebiyle; \`${sa.hours}\` **saat**  \`${sa.minutes}\` **dakika** \`${sa.seconds}\` **saniye** den beri **AFK**`)
+    .setDescription(`${message.author.tag} adlı kullanıcı artık AFK değil`)
     .setColor("#00ff88")
     message.channel.send(muah2)
 

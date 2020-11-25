@@ -162,7 +162,6 @@ client.on('message', msg => {
 
 
 /////////////////////////////////////////////////////////AFK////////////////////////////////////////////////////
-
 const ms = require("parse-ms");
 const { DiscordAPIError } = require("discord.js");
 
@@ -174,16 +173,7 @@ client.on("message", async message => {
 
   if (await db.fetch(`afk_${message.author.id}`)) {
     db.delete(`afk_${message.author.id}`);
-    db.delete(`afk_süre_${message.author.id}`);
-
-    const embed = new Discord.MessageEmbed()
-
-      .setColor("GREEN")
-      .setAuthor(message.author.username, message.author.avatarURL)
-      .setDescription(`${message.author.username} Artık \`AFK\` Değilsin.`);
-
-    message.channel.send(embed);
-  }
+    db.delete(`afk_süre_${message.author.id}`);  }
 
   var USER = message.mentions.users.first();
   if (!USER) return;
@@ -197,7 +187,7 @@ client.on("message", async message => {
 
       .setColor("#ff0000")
       .setDescription(
-        `**BU KULLANICI AFK**\n\n**Afk Olan Kullanıcı :** ${USER.tag}\n**Afk Süresi :** \`${timeObj.hours}saat\` \`${timeObj.minutes}dakika\` \`${timeObj.seconds}saniye\`\n**Sebep :** \`${REASON}\``
+        `**${USER.tag} adlı kullanıcı \`${REASON}\` sebebiyle \`${timeObj.hours}saat\` \`${timeObj.minutes}dakika\` \`${timeObj.seconds}saniye\` süredir AFK.`
       );
 
     message.channel.send(afk);

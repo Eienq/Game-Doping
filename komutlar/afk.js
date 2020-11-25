@@ -6,14 +6,18 @@ exports.run = function(client, message, args) {
   let acebot = new Discord.MessageEmbed().setColor('#70ff70').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
   let prefix  = ayarlar.prefix
 
-  db.set(`name.${message.author.id}.${message.guild.id}`, message.member.displayName);
-message.member.setNickname('[AFK] '+message.member.displayName);
-  var user = message.author;
+ 
+
+    var user = message.author;
   var sebep = args.slice(0).join("  ");
   
-  const ace = acebot
+ 
+  const ace = acebot 
   .setDescription(`**AFK moduna geçmek için bir sebep belirtmelisin.**\n\n >Örnek Kullanım: **\`${prefix}afk <sebep>\`**`)
   if(!sebep) return message.channel.send(ace);
+  
+   db.set(`name.${message.author.id}.${message.guild.id}`, message.member.displayName);
+message.member.setNickname('[AFK] '+message.member.displayName);
   
   db.set(`afk_${user.id}`, sebep);
   db.set(`afk_süre_${user.id}`, Date.now());
