@@ -9,8 +9,9 @@ exports.run = async (client, message, args) => {
  let erkekrol2 = ayarlar.erkekrol2
  let cezalı = ayarlar.cezalı
 
+  let acebots = new Discord.MessageEmbed()
 
-let acebots = new Discord.MessageEmbed().setColor("#ff0000").setDescription(`**Bu komudu kullanabilmek için **\`<@&${yetkili}>\`** yetkisine sahip olmalısın!**`)
+ .setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`)
 if (!message.member.roles.cache.get(yetkili)) return message.channel.send(acebots) //acebots  
   
 let kullanıcı = message.mentions.users.first()
