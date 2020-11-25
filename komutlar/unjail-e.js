@@ -28,7 +28,7 @@ member.roles.remove(cezalı)
    
 
 const ikrudka = acebot
-.setAuthor('Bir Üye Cezalıya Çıkarıldı')
+.setAuthor('Bir Üye Cezalıdan Çıkarıldı')
 .addField(`Jailden Çıkarılan Kullanıcı`,` ${kullanıcı}`)
 .addField(`Jailden Çıkaran Yetkili`,` <@${message.author.id}>`)
 .addField(`Jailden Çıkarılınca Verilen Roller`, `<@&${erkekrol1}>, <@&${erkekrol2}>`)
