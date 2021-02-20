@@ -1,10 +1,10 @@
 {
-  "prefix": ".",
+  "prefix": "BOT PREFİX",
   "token": "BOT TOKEN",
   "sahip": "İDNİZ",
   
   "durum": "BOT DURUM",
-  "botses": "BOTU SESE SOKMAK İÇİN",
+  "botses": "SES KANAL İD",
   
   "susturulmuş":"MUTE ROL İD",
   "cezalı":"CEZALI ROL İD", 
