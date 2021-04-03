@@ -57,7 +57,7 @@ exports.run = async (bot, msg, args) => {
         .replace("December", `**Aralık**`)
          
         const uembed = new Discord.MessageEmbed()
-        .setThumbnail(user.avatar)
+        .setThumbnail(user.avatarURL)
         .setColor('BLUE')
         .setTitle('Kullanıcı Bilgi')
         .addField("Kullanıcı", `<@!${userinfo.id}>`, true)
