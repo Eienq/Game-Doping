@@ -7,7 +7,7 @@ exports.run = async(client, message, args) => {
 
 
 
-const ace = new Discord.MessageEmbed()
+const erdems = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 .setAuthor(`Erdem Çakıroğlu'na Özel Bots`)
 .setDescription(`

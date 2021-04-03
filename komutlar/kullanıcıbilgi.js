@@ -5,7 +5,7 @@ moment.locale('tr');
 
 exports.run = async (client, message, args) => {
   
-  let acebot = new Discord.MessageEmbed().setColor('BLUE').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
+  let erdembot = new Discord.MessageEmbed().setColor('BLUE').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
 
   if(!message.guild.members.cache.get(client.user.id).hasPermission('MANAGE_MESSAGES')) return message.channel.send(`Komudu kullanabilmek için **\`Mesajları Yönet\`** yetkisine sahip olmalısınız`)
 
@@ -16,7 +16,7 @@ else if(member instanceof Discord.User) { user = member; }
 else { user = await client.users.fetch(member) };
 message.guild.members.unban(args[0]);
 
-message.channel.send(acebot.setTitle(user.tag).setThumbnail(user.avatarURL({dynamic: true}))
+message.channel.send(erdembot.setTitle(user.tag).setThumbnail(user.avatarURL({dynamic: true}))
 .addField(`Bilgileri:`, `**• Hesap Açılma Tarihi:** ${moment(user.createdAt).format('DD/MM/YYYY')}
 **• Nicki:** ${user.username}
 **• Etiketi:** ${user.discriminator}`));

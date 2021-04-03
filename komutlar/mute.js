@@ -15,11 +15,11 @@ module.exports.run = async (bot, message, args, member) => {
 
    let embed1 = new Discord.MessageEmbed()
  .setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}> **yetkisine sahip olmalısın!**`)
- if (!message.member.roles.cache.get(yetkili)) return message.channel.send(embed1) //acebots  
+ if (!message.member.roles.cache.get(yetkili)) return message.channel.send(embed1) //erdemçakıroğlu  
  
- 
+
   let mutekisi = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
-  if (!mutekisi) return message.channel.send(new Discord.MessageEmbed().setDescription(`<a:basarisiz:757851005483221022> Lütfen bir kullanıcı etiketleyiniz!`));
+  if (!mutekisi) return message.channel.send(new Discord.MessageEmbed().setDescription(`<a:757851005483221022> Lütfen bir kullanıcı etiketleyiniz!`));
   let sebep = args.splice(2, args.length).join(" ");
   let mutezaman = args[1] 
     if (!mutezaman) return message.channel.send(new Discord.MessageEmbed().setDescription(`<a:basarisiz:757851005483221022> Lütfen bir zaman giriniz! \n 1 Saniye = 1s \n 1 Dakika = 1m \n 1 Saat = 1h \n 1 Gün = 1d`));

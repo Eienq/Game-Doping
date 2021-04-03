@@ -1,22 +1,23 @@
 {
-  "prefix": "BOT PREFİX",
+  "prefix": ".",
   "token": "BOT TOKEN",
-  "sahip": "İDNİZ",
+  "sahip": "701831314533384263",
   
   "durum": "BOT DURUM",
-  "botses": "SES KANAL İD",
+  "botses": "754983886710112287",
   
-  "susturulmuş":"MUTE ROL İD",
-  "cezalı":"CEZALI ROL İD", 
+  "susturulmuş":"827803905609826306",
+  "cezalı":"802965551785836545", 
  
-  "banyetkili":"BAN YETKİLİ İD",
-  "jailyetkili":"JAİL YETKİLİ İD",
-  "muteyetkili":"MUTE YETKİLİ İD",
+  "banyetkili":"827796273024598019",
+  "jailyetkili":"827796244650917889",
+  "muteyetkili":"802967794718212116",
   
-  "mutelog":"MUTE LOG KANAL İD",
-  "banlog":"BAN LOG KANAL İD",
-  "jaillog":"JAİL LOG KANAL İD",
-  "sikayet":"ŞİKAYET KANALI İD",
+  "mutelog":"797149662074241024",
+  "banlog":"797153366391259146",
+  "jaillog":"827799101340909598",
+  "sikayet":"827803197241688084",
   
-  "verilecekrols":"VERİLECEK ROL İD"
+  "verilecekrols":"754983805739204609",
+  "abonerol": "754983806750031873"
 }

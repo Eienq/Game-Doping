@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
   
-  let acebot = new Discord.MessageEmbed().setColor('BLUE').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
+  let erdembot = new Discord.MessageEmbed().setColor('BLUE').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
   
-  if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send(acebot.setDescription("Bu Komutu Kullanabilmek İçin `Kanalları Yönet` Yetkisine Sahip Olmalısın."));
+  if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send(erdembot.setDescription("Bu Komutu Kullanabilmek İçin `Kanalları Yönet` Yetkisine Sahip Olmalısın."));
 
   let herkez = message.guild.roles.cache.find(r => r.name === "@everyone");
   message.channel.createOverwrite(herkez, {SEND_MESSAGES: null});

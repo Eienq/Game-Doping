@@ -10,7 +10,7 @@ exports.run = function(client, message, args) {
   
   let toplam = message.guild.memberCount;
   let online = message.guild.members.cache.filter( only => only.presence.status != "offline").size;
-  let abonerols = message.guild.members.cache.filter(m => m.user.rol.includes(<754983806750031873)).size;
+  let abonerols = message.guild.members.cache.filter(m => m.user.rol.includes(rol)).size;
    const voiceChannels = message.guild.channels.cache.filter(c => c.type === 'voice');
     let count = 0
       
