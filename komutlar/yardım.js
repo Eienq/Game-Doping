@@ -25,7 +25,7 @@ const erdems = new Discord.MessageEmbed()
 > **\`${prefix}unjail (Jaildeki Birini Jailden Çıkartmak İçin) -> .u vea .unjail @üye\`** \n
 `)
 .setColor("BLUE")
-return message.channel.send(ace);
+return message.channel.send(erdems);
 }
 exports.conf = {
 	enabled : true,

@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const ayarlar = require('../ayarlar.json')
 exports.run = function(client, message, args) {
   
-  let erdembots = new Discord.MessageEmbed().setColor('BLUE').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
+  let erdembot = new Discord.MessageEmbed().setColor('BLU').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
   let prefix  = ayarlar.prefix
 
  
@@ -12,9 +12,9 @@ exports.run = function(client, message, args) {
   var sebep = args.slice(0).join("  ");
   
  
-  const ace = erdembots 
+  const erdems = erdembot 
   .setDescription(`**AFK moduna geçmek için bir sebep belirtmelisin.**\n\n >Örnek Kullanım: **\`${prefix}afk <sebep>\`**`)
-  if(!sebep) return message.channel.send(ace);
+  if(!sebep) return message.channel.send(erdems);
   
    db.set(`name.${message.author.id}.${message.guild.id}`, message.member.displayName);
 message.member.setNickname('[AFK] '+message.member.displayName);

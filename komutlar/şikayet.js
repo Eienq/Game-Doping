@@ -11,17 +11,17 @@ exports.run = function(client, message, args) {
     let type = args.slice(0).join(' ');
     if (type.length < 1) return message.channel.send(new Discord.MessageEmbed().setDescription(`> **__Hatalı Kullanım...__**\n\n > **__Doğru Kullanım__** \n **\`${prefix}şikayet <şikayetiniz>\`**`));
   
-const ace = new Discord.MessageEmbed()
+const erdems = new Discord.MessageEmbed()
 .setDescription(`<@${message.author.id}>\n\n Şikayetiniz / Talebiniz Bildirildi! En Kısa Sürede Geri Dönüş Yapılıcakatır.\n\n Anlayışınız İçin Teşekkürler`)
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
-message.channel.send(ace)
+message.channel.send(erdems)
 
-const acee = new Discord.MessageEmbed()
+const erdembot = new Discord.MessageEmbed()
 .setDescription(`<@${message.author.id}> adlı kullanıcının **__Şikayeti__**:`)
 .addField(`**Kulanıcı Bilgileri**`, `> **__Kullanıcı ID:__** **\`${message.author.id}\`**\n> **__Kullanıcı Adı:__** **\`${message.author.username}\`**\n> **__Kullanıcı Tagı:__** **\`${message.author.discriminator}\`**`)
 .addField("Kullanıcı Şikayeti", type)
 .setThumbnail(message.author.avatarURL)
- client.channels.cache.get(şikayetlog).send(acee);
+ client.channels.cache.get(şikayetlog).send(erdembot);
 };
 
 exports.conf = {

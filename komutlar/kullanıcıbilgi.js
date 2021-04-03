@@ -1,37 +1,82 @@
-const Discord = require('discord.js');
-const moment = require('moment');
-moment.locale('tr');
+const Discord = require('discord.js')
+const moment = require('moment')
+const client = new Discord.Client();
 
+const botadi = "Erdem Moderation"
 
-exports.run = async (client, message, args) => {
-  
-  let erdembot = new Discord.MessageEmbed().setColor('BLUE').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
-
-  if(!message.guild.members.cache.get(client.user.id).hasPermission('MANAGE_MESSAGES')) return message.channel.send(`Komudu kullanabilmek için **\`Mesajları Yönet\`** yetkisine sahip olmalısınız`)
-
-message.guild.members.ban(args[0]).then(async (member) => {
-let user;
-if(member instanceof Discord.GuildMember) { user = member.user; }
-else if(member instanceof Discord.User) { user = member; }
-else { user = await client.users.fetch(member) };
-message.guild.members.unban(args[0]);
-
-message.channel.send(erdembot.setTitle(user.tag).setThumbnail(user.avatarURL({dynamic: true}))
-.addField(`Bilgileri:`, `**• Hesap Açılma Tarihi:** ${moment(user.createdAt).format('DD/MM/YYYY')}
-**• Nicki:** ${user.username}
-**• Etiketi:** ${user.discriminator}`));
-});
-
-};
+exports.run = async (bot, msg, args) => {
+        let simdikitarih = moment.utc(msg.createdAt).format('DD MM YYYY');
+        let user = msg.mentions.users.first() || msg.author;
+        let userinfo = {};
+        userinfo.avatar= user.displayAvatarURL();
+        userinfo.id = user.id;
+        userinfo.status = user.presence.status.toString()
+        .replace("dnd", `Rahatsız Etmeyin`)
+        .replace("online", `Çevrimiçi`)
+        .replace("idle", `Boşta`)
+        .replace("offline", `Çevrimdışı`)
+        userinfo.dctarih = moment.utc(msg.guild.members.cache.get(user.id).user.createdAt).format('**DD** MMMM **YYYY** dddd **[Günü]** **[Saat:]** __**HH:mm:ss**__')
+        .replace("Monday", `**Pazartesi**`)
+        .replace("Tuesday", `**Salı**`)
+        .replace("Wednesday", `**Çarşamba**`)
+        .replace("Thursday", `**Perşembe**`)
+        .replace("Friday", `**Cuma**`)
+        .replace("Saturday", `**Cumartesi**`)
+        .replace("Sunday", `**Pazar**`)
+        .replace("January", `**Ocak**`)
+        .replace("February", `**Şubat**`)
+        .replace("March", `**Mart**`)
+        .replace("April", `**Nisan**`)
+        .replace("May", `**Mayıs**`)
+        .replace("June", `**Haziran**`)
+        .replace("July", `**Temmuz**`)
+        .replace("August", `**Ağustos**`)
+        .replace("September", `**Eylül**`)
+        .replace("October", `**Ekim**`)
+        .replace("November", `**Kasım**`)
+        .replace("December", `**Aralık**`)
+        userinfo.dctarihkatilma = moment.utc(msg.guild.members.cache.get(user.id).joinedAt).format('**DD** MMMM **YYYY** dddd **[Günü]** **[Saat:]** __**HH:mm:ss**__')
+        .replace("Monday", `**Pazartesi**`)
+        .replace("Tuesday", `**Salı**`)
+        .replace("Wednesday", `**Çarşamba**`)
+        .replace("Thursday", `**Perşembe**`)
+        .replace("Friday", `**Cuma**`)
+        .replace("Saturday", `**Cumartesi**`)
+        .replace("Sunday", `**Pazar**`)
+        .replace("January", `**Ocak**`)
+        .replace("February", `**Şubat**`)
+        .replace("March", `**Mart**`)
+        .replace("April", `**Nisan**`)
+        .replace("May", `**Mayıs**`)
+        .replace("June", `**Haziran**`)
+        .replace("July", `**Temmuz**`)
+        .replace("August", `**Ağustos**`)
+        .replace("September", `**Eylül**`)
+        .replace("October", `**Ekim**`)
+        .replace("November", `**Kasım**`)
+        .replace("December", `**Aralık**`)
+         
+        const uembed = new Discord.MessageEmbed()
+        .setThumbnail(user.avatarURL({dynamic: true}))
+        .setColor('BLUE')
+        .setTitle('Kullanıcı Bilgi')
+        .addField("Kullanıcı", `<@!${userinfo.id}>`, true)
+        .addField("Kullanıcı ID", `**${userinfo.id}**`, true)
+        .addField("Durum", `**${userinfo.status}**`, true)
+        .addField("Şuan Oynadığı Oyun", `__**${userinfo.od1}**__`, true)
+        .addField("Sunucuya Katılma Tarihi", `${userinfo.dctarihkatilma}`, true)
+        .addField("Hesap Oluşturma Tarihi", `${userinfo.dctarih}`, true)
+        .setFooter(' Erdem Çakıroğlu ❤  - Kullanıcı Bilgi')
+        msg.channel.send(uembed)
+    }
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: [],
+  aliases: ["info","kullanıcı-bilgi","k-bilgi","userinfo"],
   permLevel: 0
-}
-
+};
 exports.help = {
-  name: 'Kullanıcı-bilgi',
-  description: "Idsini Girdiğiniz Kişinin Bilgilerini Gösterir.",
-  usage: "!kullanıcı-bilgi <id>"
+  name: 'userinfo',
+  description: 'İstediğiniz kullanıcını bilgilerini gösterir.',
+  usage: 'userinfo'
 };
