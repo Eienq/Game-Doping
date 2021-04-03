@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
   
-  new Discord.MessageEmbed().setColor('#70ff70').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
+  new Discord.MessageEmbed().setColor('BLUE').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
   
   if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu Komutu Kullanabilmek İçin **\`Kanalları Yönet\`** Yetkisine Sahip Olmalısın.`));
 

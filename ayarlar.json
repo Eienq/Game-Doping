@@ -18,10 +18,5 @@
   "jaillog":"JAİL LOG KANAL İD",
   "sikayet":"ŞİKAYET KANALI İD",
   
-  "erkekrol1":"ERKEK ROL 1 İD",
-  "erkekrol2":"ERKEK ROL 2 İD",
-  "kızrol1":"KIZ ROL 1 İD",
-  "kızrol2":"KIZ ROL 2 İD",
-
-  "tag":"TAGINIZ!"
+  "verilecekrols":"VERİLECEK ROL İD"
 }

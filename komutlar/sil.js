@@ -3,7 +3,7 @@ const ayarlar = require('../ayarlar.json');
 
 exports.run = function(client, message, args) {
   
-  let acebot = new Discord.MessageEmbed().setColor('#70ff70').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
+  let acebot = new Discord.MessageEmbed().setColor('BLUE').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
   if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply(`Bu komutu kullanabilmek için **\`Mesajları Yönet\`** iznine sahip olmalısın!`);
   
 if(isNaN(args[0])) { var acebots = acebot.setDescription(`Lütfen 1-100 arasında sayı belirtiniz!`)
