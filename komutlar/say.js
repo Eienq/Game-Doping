@@ -5,7 +5,7 @@ const ayarlar = require("../ayarlar.json");
 
 exports.run = function(client, message, args) {
   
-  let acebot = new Discord.MessageEmbed().setColor('#70ff70').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
+  let erdembots = new Discord.MessageEmbed().setColor('BLUE').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
  let tagg = ayarlar.tag
   
   let toplam = message.guild.memberCount;
@@ -17,13 +17,13 @@ exports.run = function(client, message, args) {
     let textChannels = message.guild.channels.cache.filter(m => m.type == "text").size;
     for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;    let boost = message.guild.premiumSubscriptionCount
   
-  const acebots = acebot
+  const erdemcode = erdembots
   
   .setDescription(`**Sunucudaki Kullanıcı Sayısı;** ${toplam} \n
   **Sunucuda Tagımızı Alan Kullanıcı Sayısı;** ${taggg} \n
   **Sesli Kanallarda Bulunan Kullanıcı Sayısı;** ${count}\n
   **Sunucudaki Boost Sayısı;** ${boost}`);
-  message.channel.send(acebots)
+  message.channel.send(erdemcode)
 };
 
 exports.conf = {

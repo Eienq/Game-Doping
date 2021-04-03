@@ -5,7 +5,7 @@ moment.locale('tr');
 
 exports.run = async (client, message, args) => {
   
-  let acebot = new Discord.MessageEmbed().setColor('#70ff70').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
+  let acebot = new Discord.MessageEmbed().setColor('BLUE').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
 
   if(!message.guild.members.cache.get(client.user.id).hasPermission('MANAGE_MESSAGES')) return message.channel.send(`Komudu kullanabilmek için **\`Mesajları Yönet\`** yetkisine sahip olmalısınız`)
 

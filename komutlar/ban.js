@@ -5,7 +5,7 @@ const ayarlar = require("../ayarlar.json");
 
 exports.run = async(client, message, args) => {
   
-  let acebot = new Discord.MessageEmbed().setColor('#70ff70').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
+  let acebot = new Discord.MessageEmbed().setColor('BLUE').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
   let yetkili = ayarlar.jailyetkili
   let banlogkanal = ayarlar.banlog
  let acebots = acebot.setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`)

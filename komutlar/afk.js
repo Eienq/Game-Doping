@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const ayarlar = require('../ayarlar.json')
 exports.run = function(client, message, args) {
   
-  let acebot = new Discord.MessageEmbed().setColor('#70ff70').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
+  let acebot = new Discord.MessageEmbed().setColor('BLUE').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
   let prefix  = ayarlar.prefix
 
  
