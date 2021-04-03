@@ -155,7 +155,7 @@ client.on('message', msg => {
 
 client.on('message', msg => {
     let tag = ayarlar.tag
-  if (msg.content.toLowerCase() === 'Naber') {
+  if (msg.content.toLowerCase() === 'naber') {
     msg.channel.send(`İyi Senden Naber`);
   }
 });
