@@ -9,7 +9,7 @@ exports.run = async(client, message, args) => {
 
 const ace = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
-.setAuthor(`V1-Geliştirilmiş-Public-Moderasyon-Botu-v12`)
+.setAuthor(`Erdem Çakıroğlu'na Özel Bots`)
 .setDescription(`
 > **\`${prefix}afk -> .afk <sebep>\`** \n
 > **\`${prefix}ban -> .ban @üye <sebep>\`** \n
@@ -22,9 +22,9 @@ const ace = new Discord.MessageEmbed()
 > **\`${prefix}smute -> .smute @üye <Süre> <Sebep>\`** \n
 > **\`${prefix}unmute -> .unmute @üye\`** \n 
 > **\`${prefix}jail -> .jail @üye <Sebep>\`** \n
-> **\`${prefix}unjail-e (Erkek İçin) -> .ue @üye\`** \n
-> **\`${prefix}unjail-k (Kız İçin) -> .uk @üye\`** `)
-.setColor("#00ff51")
+> **\`${prefix}unjail (Jaildeki Birini Jailden Çıkartmak İçin) -> .u vea .unjail @üye\`** \n
+`)
+.setColor("BLUE")
 return message.channel.send(ace);
 }
 exports.conf = {

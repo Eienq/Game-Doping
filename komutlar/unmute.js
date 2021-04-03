@@ -9,8 +9,8 @@ exports.run = async (client, message, args) => {
 
 
 
-   let acebots = new Discord.MessageEmbed().setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`)
-   if (!message.member.roles.cache.get(yetkili)) return message.channel.send(acebots) //acebots  
+   let erdembots = new Discord.MessageEmbed().setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`)
+   if (!message.member.roles.cache.get(yetkili)) return message.channel.send(erdembots) ////erdemçakıroğlu  
    let kullanıcı = message.mentions.users.first()
    if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setDescription('Bir üye etiketlemen gerekiyor!'));
    let user = message.mentions.users.first();
@@ -20,16 +20,16 @@ exports.run = async (client, message, args) => {
 
    
 
-const ace = new Discord.MessageEmbed()
+const erdemscode = new Discord.MessageEmbed()
 .setAuthor('Bir Üyenin Susturması Açıldı')
 .addField(`Susturulması Açan Kullanıcı`,` ${kullanıcı}`)
 .addField(`Susturmasını Açan Yetkili`,` <@${message.author.id}>`)
 .setThumbnail( message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
-client.channels.cache.get(mutelogkanal).send(ace)
+client.channels.cache.get(mutelogkanal).send(erdemscode)
   
-  let acecode = new Discord.MessageEmbed()
+  let erdemcodes = new Discord.MessageEmbed()
 .setDescription(`${kullanıcı} Adlı Kişisinin <@&${susturulmuş}> Rolü Alınarak, susturulması kaldırıldı `) 
-return message.channel.send(acecode);
+return message.channel.send(erdemcodes);
   
 }
 

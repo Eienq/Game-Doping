@@ -132,7 +132,7 @@ client.on('error', e => {
 
 client.login(ayarlar.token);
 
-
+//---------------/sa-as//---------------------//
 
 client.on("ready", () => {
   let sesegir = ayarlar.botses
@@ -141,22 +141,22 @@ client.on("ready", () => {
 
 client.on('message', msg => {
   let tag = ayarlar.tag
-  if (msg.content.toLowerCase() === 'tag') {
-    msg.channel.send(` \`${tag}\` `);
+  if (msg.content.toLowerCase() === 'selam') {
+    msg.channel.send(`Selamm Hoşgeldin Naber?`);
   }
 });
 
 client.on('message', msg => {
     let tag = ayarlar.tag
-  if (msg.content.toLowerCase() === '.tag') {
-    msg.channel.send(` \`${tag}\` `);
+  if (msg.content.toLowerCase() === 'iyi') {
+    msg.channel.send(`Hep iyi Olman Dileğiyle`);
   }
 });
 
 client.on('message', msg => {
     let tag = ayarlar.tag
-  if (msg.content.toLowerCase() === '!tag') {
-    msg.channel.send(` \`${tag}\` `);
+  if (msg.content.toLowerCase() === 'Naber') {
+    msg.channel.send(`İyi Senden Naber`);
   }
 });
 
@@ -185,7 +185,7 @@ client.on("message", async message => {
 
     const afk = new Discord.MessageEmbed()
 
-      .setColor("#ff0000")
+      .setColor("BLACK")
       .setDescription(
         `**${USER.tag} adlı kullanıcı \`${REASON}\` sebebiyle \`${timeObj.hours}saat\` \`${timeObj.minutes}dakika\` \`${timeObj.seconds}saniye\` süredir AFK.`
       );
