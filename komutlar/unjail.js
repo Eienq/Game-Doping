@@ -35,7 +35,7 @@ const erdembotss = new Discord.MessageEmbed()
 client.channels.cache.get(jaillogkanal).send(erdembotss)//Log Kanal İd
   
   let erdemcode = new Discord.MessageEmbed()
-.setDescription(`${kullanıcı} Adlı Kişisinin <@&${cezalı}> Rolü Alınarak ,<@&${verilecekrols}> Rolü Geri Verildi! `) 
+.setDescription(`${kullanıcı} Adlı Kişisinin <@&${cezalı}> Rolü Alınarak ,<@&${verilecekrols}> Rolü Geri Verildi `) 
 return message.channel.send(erdemcode);
   
 }
@@ -43,7 +43,7 @@ return message.channel.send(erdemcode);
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["unj","un"],
+  aliases: ["u","un"],
   kategori: "Yetkili Komutları",
   permLevel: 0
 }
@@ -51,5 +51,5 @@ exports.conf = {
 exports.help = {
   name: 'unjail',
   description: "Etiketlenen kişinin tüm rollerini alıp jail'e atar.",
-  usage: '!jail @etiket Sebep'
+  usage: 'jail @etiket Sebep'
 }

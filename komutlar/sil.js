@@ -10,14 +10,14 @@ if(isNaN(args[0])) { var erdembots = erdembot.setDescription(`Lütfen 1-100 aras
 return message.channel.send(erdembots);
 }
   
-if (args[0] < 1) return message.reply("**1** adetten az mesaj silemem!")
-if (args[0] > 100) return message.reply("**100** adetten fazla mesaj silemem!")
+if (args[0] < 1) return message.reply("**1** adetten az mesaj silemem")
+if (args[0] > 100) return message.reply("**100** adetten fazla mesaj silemem")
   
 message.channel.bulkDelete(args[0]).then(deletedMessages => {
-if (deletedMessages.size < 1) return message.reply("Hiç mesaj silemedim! _(**14** günden önceki mesajları silemem!)_");
+if (deletedMessages.size < 1) return message.reply("Hiç mesaj silemedim _(**14** günden önceki mesajları silemem)_");
 })
 
-  message.channel.send(erdembot.setDescription(`**${args[0]}** adet mesaj başarıyla silindi!`))
+  message.channel.send(erdembot.setDescription(`**${args[0]}** adet mesaj başarıyla silindi`))
 };
 
 exports.conf = {
@@ -30,5 +30,5 @@ exports.conf = {
 exports.help = {
   name: 'sil',
   description: 'Belirtilen miktarda mesaj siler.',
-  usage: '!sil <miktar>'
+  usage: 'sil <miktar>'
 };

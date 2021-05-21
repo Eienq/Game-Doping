@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
   
-  let erdembot = new Discord.MessageEmbed().setColor('BLUE').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
+  let erdembot = new Discord.MessageEmbed().setColor('BLUE').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı  `).setTimestamp();
   
   if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send(erdembot.setDescription("Bu Komutu Kullanabilmek İçin `Kanalları Yönet` Yetkisine Sahip Olmalısın."));
 
@@ -21,5 +21,5 @@ exports.conf = {
 exports.help = {
   name: 'sohbet-aç',
   description: `Sohbeti Everyone'a Açarsınız`,
-  usage: '!sohbet-aç'
+  usage: 'sohbet-aç'
 };

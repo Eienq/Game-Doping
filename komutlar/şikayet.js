@@ -12,7 +12,7 @@ exports.run = function(client, message, args) {
     if (type.length < 1) return message.channel.send(new Discord.MessageEmbed().setDescription(`> **__Hatalı Kullanım...__**\n\n > **__Doğru Kullanım__** \n **\`${prefix}şikayet <şikayetiniz>\`**`));
   
 const erdems = new Discord.MessageEmbed()
-.setDescription(`<@${message.author.id}>\n\n Şikayetiniz / Talebiniz Bildirildi! En Kısa Sürede Geri Dönüş Yapılıcakatır.\n\n Anlayışınız İçin Teşekkürler`)
+.setDescription(`<@${message.author.id}>\n\n Şikayetiniz / Talebiniz Bildirildi En Kısa Sürede Geri Dönüş Yapılıcakatır.\n\n Anlayışınız İçin Teşekkürler`)
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
 message.channel.send(erdems)
 

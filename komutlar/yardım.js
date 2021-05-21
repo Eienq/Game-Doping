@@ -9,7 +9,7 @@ exports.run = async(client, message, args) => {
 
 const erdems = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
-.setAuthor(`Erdem Çakıroğlu'na Özel Bots`)
+.setAuthor(`Eien ✮ 卂尺乇丂`)
 .setDescription(`
 > **\`${prefix}afk -> .afk <sebep>\`** \n
 > **\`${prefix}ban -> .ban @üye <sebep>\`** \n

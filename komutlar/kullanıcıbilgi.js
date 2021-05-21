@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const moment = require('moment')
 const client = new Discord.Client();
 
-const botadi = "Erdem Moderation"
+const botadi = "卂尺乇丂"
 
 exports.run = async (bot, msg, args) => {
         let simdikitarih = moment.utc(msg.createdAt).format('DD MM YYYY');
@@ -66,7 +66,7 @@ exports.run = async (bot, msg, args) => {
         .addField("Şuan Oynadığı Oyun", `__**${userinfo.od1}**__`, true)
         .addField("Sunucuya Katılma Tarihi", `${userinfo.dctarihkatilma}`, true)
         .addField("Hesap Oluşturma Tarihi", `${userinfo.dctarih}`, true)
-        .setFooter(' Erdem Çakıroğlu ❤  - Kullanıcı Bilgi')
+        .setFooter(' Eien ✮ 卂尺乇丂')
         msg.channel.send(uembed)
     }
 exports.conf = {

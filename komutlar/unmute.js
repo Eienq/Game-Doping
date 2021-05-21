@@ -9,10 +9,10 @@ exports.run = async (client, message, args) => {
 
 
 
-   let erdembots = new Discord.MessageEmbed().setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın!**`)
+   let erdembots = new Discord.MessageEmbed().setDescription(`**Bu komudu kullanabilmek için** <@&${yetkili}>  **yetkisine sahip olmalısın**`)
    if (!message.member.roles.cache.get(yetkili)) return message.channel.send(erdembots) ////erdemçakıroğlu  
    let kullanıcı = message.mentions.users.first()
-   if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setDescription('Bir üye etiketlemen gerekiyor!'));
+   if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().setDescription('Bir üye etiketlemen gerekiyor'));
    let user = message.mentions.users.first();
    let rol = message.mentions.roles.first()
    let member = message.guild.member(kullanıcı)
@@ -44,5 +44,5 @@ exports.conf = {
 exports.help = {
   name: 'u..m',
   description: "Etiketlenen kişinin tüm rollerini alıp jail'e atar.",
-  usage: '!jail @etiket Sebebe'
+  usage: 'jail @etiket Sebebe'
 }

@@ -5,7 +5,7 @@ const ayarlar = require("../ayarlar.json");
 
 exports.run = function(client, message, args) {
   
-  let erdembot = new Discord.MessageEmbed().setColor('#70ff70').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `).setTimestamp();
+  let erdembot = new Discord.MessageEmbed().setColor('#70ff70').setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı  `).setTimestamp();
  let tagg = ayarlar.tag
   
   let toplam = message.guild.memberCount;
@@ -35,6 +35,6 @@ exports.conf = {
 
 exports.help = {
   name: "say",
-  usage: "!say",
-  desscription: "!say"
+  usage: "say",
+  desscription: "say"
 }; 
