@@ -28,6 +28,7 @@ exports.run = async(client, message, args) => {
     .setTitle('Kişi banlandı')
     .addField('Banlanan kişi', `${user.tag}`)
     .addField('Yetkili', `${message.author.tag}`)
+    .setImage('https://steamuserimages-a.akamaihd.net/ugc/437200103298172108/851D10D3E74901511CD589803C917C72AD29FDC2/')
     .addField('Sebep', sebep)
 client.channels.cache.get(banlogkanal).send(sa)//Log Kanalı
 };
