@@ -23,6 +23,8 @@ const erdems = new Discord.MessageEmbed()
 > **\`${prefix}unmute -> .unmute @üye\`** \n 
 > **\`${prefix}jail -> .jail @üye <Sebep>\`** \n
 > **\`${prefix}unjail (Jaildeki Birini Jailden Çıkartmak İçin) -> .u vea .unjail @üye\`** \n
+> **\`${prefix}abone -> .abone \`** \n
+
 `)
 .setColor("BLUE")
 return message.channel.send(erdems);
