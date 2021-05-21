@@ -20,7 +20,7 @@ if(!abonerol) return message.channel.send(`Abone rolü ayarlanmamış`)
   await(abonekisi.roles.add(abonerol))
   
   const embed = new Discord.MessageEmbed()
-  .setTitle(`Abone Rolü Verildi!  <a:tik3:720578734327070741>`)
+  .setTitle(`Abone Rolü Verildi!  <:Dogru:839042687079415878>`)
   .addField(`Abone Rolünü Veren Kişi:`, `${message.author.tag}`, true)
   .addField(`Abone Rolü Verilen Kişi`, `${user}`, true)
   .setThumbnail(user.avatarURL())
